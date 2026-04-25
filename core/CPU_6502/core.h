@@ -1,5 +1,5 @@
 #include <cstdint>
-class core {
+class CPU_6502 {
 
 public:
   // 2 byte program counter, holds the address of the next opcode to be executed
@@ -33,4 +33,27 @@ public:
       uint8_t NEGATIVE : 8;
     };
   };
+
+  // NES has 13 addressing modes, comprising of 6 indexed (basically, CPU takes
+  // the base address and adds a register) and 7 other modes An addressing mode
+  // basically tells the CPU where the data to conduct a given operation is, ie:
+  // returns an address So for example for opcodes that use implicit addressing,
+  // the location of the operand is implied, for immediate addressing, the
+  // operand itself is used rather than an address
+
+  // INDEXED ADDRESSING MODES
+  uint8_t ZERO_PAGE_INDEXED_Y();
+  uint8_t ZERO_PAGE_INDEXED_X();
+  uint8_t ABSOLUTE_INDEXED_Y();
+  uint8_t ABSOLUTE_INDEXED_X();
+  uint8_t INDEXED_INDIRECT();
+  uint8_t INDIRECT_INDEXED();
+
+  // OTHER ADDRESSING MODES
+  uint8_t ACCUMULATOR();
+  uint8_t IMPLICIT();
+  uint8_t IMMEDIATE();
+  uint8_t ZERO_PAGE();
+  uint8_t ABSOLUTE();
+  uint8_t RELATIVE();
 };
