@@ -1,7 +1,18 @@
+#pragma once
+
+#include "../Bus/bus.h"
 #include <cstdint>
+
 class CPU_6502 {
 
 public:
+  // The bus, the CPU will never talk to the PPU directly but rather through the
+  // bus, the bus is basically the motherboard of the NES
+  BUS *B;
+
+  // connects bus, will implement later
+  void connect_bus(BUS *bus);
+
   // 2 byte program counter, holds the address of the next opcode to be executed
   uint16_t PC = 0x0000;
 
