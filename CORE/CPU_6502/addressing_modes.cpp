@@ -113,10 +113,58 @@ uint16_t CPU_6502::ZERO_PAGE_INDEXED_Y() {
                                  // byte also mirrors every 256 bytes
   return addr;
 }
-uint16_t CPU_6502::ABSOLUTE_INDEXED_Y() {}
 
-uint16_t CPU_6502::ABSOLUTE_INDEXED_X() {}
+// For aboslute indexed y addressing, it basically is the same as absolute,
+// except the y register is added to it
+uint16_t CPU_6502::ABSOLUTE_INDEXED_Y() {
 
-uint16_t CPU_6502::INDEXED_INDIRECT() {}
+  uint8_t lo = read(PC++);
+  uint8_t hi = read(PC++);
+
+  uint16_t addr =
+      (hi << 8) | lo; // this effective combines the hi and lo into one address,
+                      // shifts the hi 8 bits to the left, then ORs with the lo
+  uint16_t new_addr = addr + Y; // add the y register
+
+  return new_addr;
+}
+
+// For aboslute indexed x addressing, it basically is the same as absolute,
+// except the y register is added to it
+uint16_t CPU_6502::ABSOLUTE_INDEXED_X() {
+
+  uint8_t lo = read(PC++);
+  uint8_t hi = read(PC++);
+
+  uint16_t addr =
+      (hi << 8) | lo; // this effective combines the hi and lo into one address,
+                      // shifts the hi 8 bits to the left, then ORs with the lo
+  uint16_t new_addr = addr + X; // add the x register
+
+  return new_addr;
+}
+
+// Alright so these two are a fucking doozy, I took a look as nesdev.org and
+// this is the formulas for these last two addressing modes (d,x) 	Indexed
+//indirect 	val = PEEK(PEEK((arg + X) % 256) + PEEK((arg + X + 1) % 256) *
+//256) (d),y 	Indirect indexed 	val = PEEK(PEEK(arg) + PEEK((arg + 1) %
+//256) * 256 + Y)
+
+uint16_t CPU_6502::INDEXED_INDIRECT() {
+
+  // Alright so lets break this down
+  uint16_t first_value = read(PC++); // This is the "arg"
+
+  // this is (arg + X) % 256, ANDing the zero page mask is effectivly % 256
+  uint8_t new_lo = read((first_value + X) & ZERO_PAGE_MASK);
+  // and this is (arg + X + 1) % 256
+  uint8_t new_hi = read((first_value + X + 1) & ZERO_PAGE_MASK);
+
+  // combining the bytes by shifting the hi 8 bits effectivly multiplies it by
+  // 256
+  uint16_t new_addr = (new_hi << 8) | new_lo;
+
+  return new_addr;
+}
 
 uint16_t CPU_6502::INDIRECT_INDEXED() {}
