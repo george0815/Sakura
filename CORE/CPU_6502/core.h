@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Bus/bus.h"
+#include "../BUS/bus.h"
 #include <cstdint>
 
 class CPU_6502 {
@@ -45,6 +45,10 @@ public:
     };
   };
 
+  // Read and write
+  uint8_t read(uint16_t addr);
+  void write(uint16_t addr, uint8_t data);
+
   // NES has 13 addressing modes, comprising of 6 indexed (basically, CPU takes
   // the base address and adds a register) and 7 other modes An addressing mode
   // basically tells the CPU where the data to conduct a given operation is, ie:
@@ -53,18 +57,19 @@ public:
   // operand itself is used rather than an address
 
   // INDEXED ADDRESSING MODES
-  uint8_t ZERO_PAGE_INDEXED_Y();
-  uint8_t ZERO_PAGE_INDEXED_X();
-  uint8_t ABSOLUTE_INDEXED_Y();
-  uint8_t ABSOLUTE_INDEXED_X();
-  uint8_t INDEXED_INDIRECT();
-  uint8_t INDIRECT_INDEXED();
+  uint16_t ZERO_PAGE_INDEXED_Y();
+  uint16_t ZERO_PAGE_INDEXED_X();
+  uint16_t ABSOLUTE_INDEXED_Y();
+  uint16_t ABSOLUTE_INDEXED_X();
+  uint16_t INDEXED_INDIRECT();
+  uint16_t INDIRECT_INDEXED();
 
   // OTHER ADDRESSING MODES
-  uint8_t ACCUMULATOR();
-  uint8_t IMPLICIT();
-  uint8_t IMMEDIATE();
-  uint8_t ZERO_PAGE();
-  uint8_t ABSOLUTE();
-  uint8_t RELATIVE();
+  uint16_t ACCUMULATOR();
+  uint16_t IMPLICIT();
+  uint16_t IMMEDIATE();
+  uint16_t ZERO_PAGE();
+  uint16_t ABSOLUTE();
+  uint16_t RELATIVE();
+  uint16_t INDIRECT();
 };
