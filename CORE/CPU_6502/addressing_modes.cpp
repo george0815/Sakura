@@ -67,17 +67,39 @@ uint16_t CPU_6502::RELATIVE() {
 
 uint16_t CPU_6502::INDIRECT() {
 
-  uint8_t hi = read(PC++);
   uint8_t lo = read(PC++);
+  uint8_t hi = read(PC++);
 
   uint16_t addr = (hi << 8) | lo; // combine to make the address
 
   // Then use the new address to construct ANOTHER adress, now by getting the lo
   // first then the hi (man this is confusing sometimes lol)
   uint8_t new_lo = read(addr);
-  uint8_t new_hi = read(addr + 1);
 
-  uint16_t new_addr = (new_hi << 8) | lo; // combine final address
+  // JMP BUG, if page boundary is crossed (for example: $70FF + 1), then the CPU
+  // fails to carry the lo order byte so instead of $7100, ($70FF + 1) would
+  // become $7000
+
+  uint8_t new_hi = 0x00;
+  uint16_t new_hi_location;
+  // Detect page crossing
+  if (((addr + 1) & 0xFF00) !=
+      (addr & 0xFF00)) { // If high byte was changed, page was crossed, this is
+                         // because the lo byte represents up to 256 values with
+                         // a max value being 255
+    // so if you need to represent say, 256, you would have to use the 9th bit,
+    // thus changing the hi byte and crossing the page this pattern repeats for
+    // every 256 bytes
+
+    new_hi_location = addr & 0xFF00; // dont carry lo byte
+    new_hi = read(new_hi_location);
+  }
+  // proceed normally
+  else {
+    new_hi = read(addr + 1);
+  }
+
+  uint16_t new_addr = (new_hi << 8) | new_lo; // combine final address
 
   return PC + new_addr; // add to program counter then return
 }
@@ -146,14 +168,14 @@ uint16_t CPU_6502::ABSOLUTE_INDEXED_X() {
 
 // Alright so these two are a fucking doozy, I took a look as nesdev.org and
 // this is the formulas for these last two addressing modes (d,x) 	Indexed
-//indirect 	val = PEEK(PEEK((arg + X) % 256) + PEEK((arg + X + 1) % 256) *
-//256) (d),y 	Indirect indexed 	val = PEEK(PEEK(arg) + PEEK((arg + 1) %
-//256) * 256 + Y)
+// indirect 	val = PEEK(PEEK((arg + X) % 256) + PEEK((arg + X + 1) % 256) *
+// 256) (d),y 	Indirect indexed 	val = PEEK(PEEK(arg) + PEEK((arg + 1) %
+// 256) * 256 + Y)
 
 uint16_t CPU_6502::INDEXED_INDIRECT() {
 
   // Alright so lets break this down
-  uint16_t first_value = read(PC++); // This is the "arg"
+  uint8_t first_value = read(PC++); // This is the "arg"
 
   // this is (arg + X) % 256, ANDing the zero page mask is effectivly % 256
   uint8_t new_lo = read((first_value + X) & ZERO_PAGE_MASK);
@@ -166,5 +188,19 @@ uint16_t CPU_6502::INDEXED_INDIRECT() {
 
   return new_addr;
 }
+//(d),y 	Indirect indexed 	val = PEEK(PEEK(arg) + PEEK((arg + 1) %
+// 256) * 256 + Y)
+uint16_t CPU_6502::INDIRECT_INDEXED() {
 
-uint16_t CPU_6502::INDIRECT_INDEXED() {}
+  // arg
+  uint8_t first_value = read(PC++);
+  // PEEK(arg)
+  uint8_t new_lo = read(first_value & ZERO_PAGE_MASK);
+  // PEEK((arg + 1) % 256)
+  uint8_t new_hi = read((first_value + 1) & ZERO_PAGE_MASK);
+
+  // * 256
+  uint16_t new_addr = (new_hi << 8) | new_lo;
+
+  return new_addr + Y;
+}
