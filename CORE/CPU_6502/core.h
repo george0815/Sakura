@@ -10,6 +10,10 @@ public:
   // bus, the bus is basically the motherboard of the NES
   BUS *B;
 
+  // bool for detecting whether a page has been crossed, used by addressing
+  // modes
+  bool PAGE_CROSSED = false;
+
   // connects bus, will implement later
   void connect_bus(BUS *bus);
 
@@ -48,13 +52,6 @@ public:
   // Read and write
   uint8_t read(uint16_t addr);
   void write(uint16_t addr, uint8_t data);
-
-  // NES has 13 addressing modes, comprising of 6 indexed (basically, CPU takes
-  // the base address and adds a register) and 7 other modes An addressing mode
-  // basically tells the CPU where the data to conduct a given operation is, ie:
-  // returns an address So for example for opcodes that use implicit addressing,
-  // the location of the operand is implied, for immediate addressing, the
-  // operand itself is used rather than an address
 
   // INDEXED ADDRESSING MODES
   uint16_t ZERO_PAGE_INDEXED_Y();
