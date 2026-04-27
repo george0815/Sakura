@@ -1,7 +1,6 @@
 #pragma once
 #include "core.h"
 #include <cstdint>
-#include <filesystem>
 
 /*SOME EXPLANATIONS ABOUT ADDRESSING MODES
  *
@@ -84,8 +83,9 @@ uint16_t CPU_6502::RELATIVE() {
 // For indirect addressing, the hi byte is read in first, then the lo byte
 // Then a new address is constructed
 // Using that new address, I read in another hi byte then low byte to construct
-// another address 
-// This is then added to the program counter then excecution procceeds from there
+// another address
+// This is then added to the program counter then excecution procceeds from
+// there
 
 uint16_t CPU_6502::INDIRECT() {
 
@@ -94,12 +94,14 @@ uint16_t CPU_6502::INDIRECT() {
 
   uint16_t addr = (hi << 8) | lo; // combine to make the address
 
-  // Then use the new address to construct ANOTHER address, now by getting the lo first then the hi (man this is confusing sometimes lol)
+  // Then use the new address to construct ANOTHER address, now by getting the
+  // lo first then the hi (man this is confusing sometimes lol)
   uint8_t new_lo = read(addr);
 
   // JMP BUG, if page boundary is crossed (for example: $70FF + 1), then the CPU
-  // fails to carry the lo order byte so instead of $7100, ($70FF + 1) would become $7000
-  // it basically wraps the lo byte back to 0, and doesn't chnage the hi byte 
+  // fails to carry the lo order byte so instead of $7100, ($70FF + 1) would
+  // become $7000 it basically wraps the lo byte back to 0, and doesn't chnage
+  // the hi byte
 
   uint8_t new_hi = 0x00;
   uint16_t new_hi_location;

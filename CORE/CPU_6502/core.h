@@ -1,34 +1,22 @@
 #pragma once
 
 #include "../BUS/bus.h"
-#include <cstdint>
 #include <array>
+#include <cstdint>
 #include <string>
 
 class CPU_6502 {
 
 public:
- 
+  // Builds lookup table, which is basically an vector of INSTRUCTION structs
+  // using the opcode as the index
+  void BUILD_LOOKUP();
 
+  // Helper function for branching TODO
+  void BRANCH();
 
-  //Lookup table, this is basically the brain of the implementation, it is an array of OPCODE structs using the opcode as the index
-  //for each execution of an opcode, the opcode is read in then used to find it's respective addressing mode and instruction
-  std::array<OPCODE, 256> LOOKUP;
-
-  //Builds lookup table, which is basically an vector of INSTRUCTION structs using the opcode as the index
-  void CPU_6502::BUILD_LOOKUP(){
-
-
-  //Helper function for branching TODO
-  void CPU_6502::BRANCH(){
-
-
-
-  //Helper function for setting flags TODO
-  void CPU_6502::SET_FLAG();
-
-
-
+  // Helper function for setting flags TODO
+  void SET_FLAG();
 
   // The bus, the CPU will never talk to the PPU directly but rather through the
   // bus, the bus is basically the motherboard of the NES
@@ -77,10 +65,7 @@ public:
   uint8_t read(uint16_t addr);
   void write(uint16_t addr, uint8_t data);
 
-
-
 private:
-
   // INDEXED ADDRESSING MODES
   uint16_t ZERO_PAGE_INDEXED_Y();
   uint16_t ZERO_PAGE_INDEXED_X();
@@ -98,9 +83,7 @@ private:
   uint16_t RELATIVE();
   uint16_t INDIRECT();
 
-
-
-  //OFFICIAL INSTRUCTIONS
+  // OFFICIAL INSTRUCTIONS
   void ADC(uint16_t addr);
   void AND(uint16_t addr);
   void ASL(uint16_t addr);
@@ -157,34 +140,31 @@ private:
   void TXA(uint16_t addr);
   void TXS(uint16_t addr);
   void TYA(uint16_t addr);
-  
 
-  //UNIMPLEMENTED/INVALID 
+  // UNIMPLEMENTED/INVALID
   void XXX(uint16_t addr);
 
-
-
-
-  //Lookup table, this is basically the brain of the implementation, it is an array of OPCODE structs using the opcode as the index
-  //for each execution of an opcode, the opcode is read in then used to find it's respective addressing mode and instruction
-  std::array<OPCODE, 256> LOOKUP;
-
-
-  //Struct representing an opcode, this is so that an opcode's corresponding instruction and addressing mode can be 
-  //called easily in the CPU's clock function without having a huge fucking switch statement
+  // Struct representing an opcode, this is so that an opcode's corresponding
+  // instruction and addressing mode can be called easily in the CPU's clock
+  // function without having a huge fucking switch statement
   typedef struct {
 
-    int cycles; //number of cycles, some instructions may take multiple cycles so its important to know
+    int cycles; // number of cycles, some instructions may take multiple cycles
+                // so its important to know
 
-    string mnemonic; //used for logging
+    std::string mnemonic; // used for logging
 
-    int bytes; //how many bytes the total opcode is 
+    int bytes; // how many bytes the total opcode is
 
-    void (*opcode) (uint16_t); //pointer to the opcode's instruction
+    void (*opcode)(uint16_t); // pointer to the opcode's instruction
 
-    uint16_t (*addr_mode) (void) //pointer to the opcode's addressing mode
-
+    uint16_t (*addr_mode)(void); // pointer to the opcode's addressing mode
 
   } OPCODE;
 
+  // Lookup table, this is basically the brain of the implementation, it is an
+  // array of OPCODE structs using the opcode as the index for each execution of
+  // an opcode, the opcode is read in then used to find it's respective
+  // addressing mode and instruction
+  std::array<OPCODE, 256> LOOKUP;
 };
