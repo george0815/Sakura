@@ -129,7 +129,10 @@ public:
   void TXA(uint16_t addr);
   void TXS(uint16_t addr);
   void TYA(uint16_t addr);
+  
 
+  //UNIMPLEMENTED/INVALID 
+  void XXX(uint16_t addr);
 
 
 
