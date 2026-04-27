@@ -171,7 +171,7 @@ void CPU_6502::BVS(uint16_t addr){
 }
 
 
-//Clear carry   
+//Clear carry, clears the carry flag  
 void CPU_6502::CLC(uint16_t addr){
 
 
@@ -180,6 +180,7 @@ void CPU_6502::CLC(uint16_t addr){
 
 
 
+//Clear carry, clears the decimal flag  
 void CPU_6502::CLD(uint16_t addr){
 
 
@@ -189,6 +190,7 @@ void CPU_6502::CLD(uint16_t addr){
 
 
 
+//Clear carry, clears the interrupt disable flag  
 void CPU_6502::CLI(uint16_t addr){
 
 
@@ -200,6 +202,7 @@ void CPU_6502::CLI(uint16_t addr){
 
 
 
+//Clear carry, clears the overflow flag  
 void CPU_6502::CLV(uint16_t addr){
 
 
@@ -209,7 +212,10 @@ void CPU_6502::CLV(uint16_t addr){
 
 
 
-
+//Compare A, compares the accumulator to a memory value
+//sets flags as appropriate but does not modify any of the registers 
+//comparison is implemented as a subtraction, setting carry if there is no borrow
+//zero if the result is 0, negative if the result is negative
 void CPU_6502::CMP(uint16_t addr){
 
 
@@ -221,6 +227,10 @@ void CPU_6502::CMP(uint16_t addr){
 
 
 
+//Compare X, compares Y to a memory value
+//sets flags as appropriate but does not modify any of the registers 
+//comparison is implemented as a subtraction, setting carry if there is no borrow
+//zero if the result is 0, negative if the result is negative
 void CPU_6502::CPX(uint16_t addr){
 
 
@@ -232,6 +242,10 @@ void CPU_6502::CPX(uint16_t addr){
 
 
 
+//Compare Y, compares Y to a memory value
+//sets flags as appropriate but does not modify any of the registers 
+//comparison is implemented as a subtraction, setting carry if there is no borrow
+//zero if the result is 0, negative if the result is negative
 void CPU_6502::CPY(uint16_t addr){
 
 
