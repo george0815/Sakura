@@ -7,7 +7,7 @@ namespace {
 
 }
 
-//Builds lookup table, which is basically an vector of INSTRUCTION structs using the opcode as the index
+//Builds lookup table, which is basically an array of OPCODE structs using the opcode as the index
 void CPU_6502::BUILD_LOOKUP(){
 
 
