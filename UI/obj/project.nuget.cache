@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "yaYW/0kBKEg=",
+  "success": true,
+  "projectFilePath": "/home/Hunter/Documents/Github/sakura/UI/UI.csproj",
+  "expectedPackageFiles": [
+    "/home/Hunter/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.4/microsoft.aspnetcore.app.ref.10.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}
