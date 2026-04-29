@@ -8,15 +8,19 @@
 class CPU_6502 {
 
 public:
-  // Builds lookup table, which is basically an vector of INSTRUCTION structs
-  // using the opcode as the index
-  void BUILD_LOOKUP();
 
-  // Helper function for branching TODO
-  void BRANCH();
 
-  // Helper function for setting flags TODO
-  void SET_FLAG();
+  //Builds lookup table, which is basically an vector of INSTRUCTION structs using the opcode as the index
+  void CPU_6502::BUILD_LOOKUP();
+
+
+
+  //Helper function for branching TODO
+  void CPU_6502::BRANCH(uint16_t target, bool condition);
+
+
+  //Helper function for setting flags TODO
+  void CPU_6502::SET_FLAG(STATUS value, bool condition);
 
   // The bus, the CPU will never talk to the PPU directly but rather through the
   // bus, the bus is basically the motherboard of the NES
@@ -45,6 +49,20 @@ public:
   // 1 byte stack pointer, accessed using interupts
   uint8_t SP = 0x00;
 
+
+  //status enum
+  enum STATUS {
+
+    CARRY = 1,
+    ZERO = 2,
+    INTERRUPT_DISABLE = 3,
+    DECIMAL = 4,
+    OVERFLOW = 7,
+    NEGATIVE = 8
+
+  }
+
+    
   // status register, I'm implementing it as a union so I can access specific
   // bits (using the struct inside) or it as a whole using the uint8_t
   union STATUS_REGISTER {
@@ -54,7 +72,7 @@ public:
 
       uint8_t CARRY : 1;
       uint8_t ZERO : 2;
-      uint8_t INTERRUPTDISABLE : 3;
+      uint8_t INTERRUPT_DISABLE : 3;
       uint8_t DECIMAL : 4;
       uint8_t OVERFLOW : 7;
       uint8_t NEGATIVE : 8;
