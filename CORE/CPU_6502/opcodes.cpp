@@ -17,27 +17,6 @@ void CPU_6502::BUILD_LOOKUP(){
 }
 
 
-
-
-
-
-//Helper function for branching TODO
-void CPU_6502::BRANCH(){
-  
-}
-
-
-
-
-//Helper function for setting flags TODO
-void CPU_6502::SET_FLAG(){
-
-}
-
-
-
-
-
 //OFFICIAL INSTRUCTIONS
   
 //Add withn carry, adds the carry flag and a memory value to the accumulator
