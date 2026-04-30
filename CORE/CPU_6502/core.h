@@ -28,11 +28,15 @@ public:
 
 
   //Helper function for branching 
-  void CPU_6502::BRANCH(uint16_t target, bool condition);
+  void BRANCH(uint16_t target, bool condition);
 
 
   //Helper function for setting flags
-  void CPU_6502::SET_FLAG(STATUS value, bool condition);
+  void SET_FLAG(STATUS value, bool condition);
+
+
+  //Helper function for getting flags
+  void GET_FLAG();
 
   // The bus, the CPU will never talk to the PPU directly but rather through the
   // bus, the bus is basically the motherboard of the NES
@@ -72,31 +76,21 @@ public:
   //status enum
   enum STATUS {
 
-    CARRY = 1,
-    ZERO = 2,
-    INTERRUPT_DISABLE = 3,
-    DECIMAL = 4,
-    OVERFLOW = 7,
-    NEGATIVE = 8
+    CARRY = 1 << 0,
+    ZERO = 1 << 1,
+    INTERRUPT_DISABLE = 1 << 2,
+    DECIMAL = 1 << 3,
+    B = 1 << 4,
+    UNUSED = 1 << 5,
+    OVERFLOW = 1 << 6,
+    NEGATIVE = 1 << 7,
 
   }
 
     
-  // status register, I'm implementing it as a union so I can access specific
-  // bits (using the struct inside) or it as a whole using the uint8_t
-  union STATUS_REGISTER {
+  // status register
+  uint8_t STATUS_REGISTER = 0x00 | STATUS::UNUSED;
 
-    uint8_t TOTAL_VALUE;
-    struct FLAGS {
-
-      uint8_t CARRY : 1;
-      uint8_t ZERO : 2;
-      uint8_t INTERRUPT_DISABLE : 3;
-      uint8_t DECIMAL : 4;
-      uint8_t OVERFLOW : 7;
-      uint8_t NEGATIVE : 8;
-    };
-  };
 
   // Read and write
   uint8_t read(uint16_t addr);

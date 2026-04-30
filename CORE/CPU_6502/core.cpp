@@ -149,30 +149,26 @@ void pull(){
 
 }
 
+//Helper function for getting flags
+void CPU_6502::GET_FLAG(){
+
+
+
+
+}
+
+
 //Helper function for setting flags TODO
 void CPU_6502::SET_FLAG(STATUS value, bool condition){
 
+  STATUS_REGISTER = condition ? STATUS_REGISTER | (value) : STATUS_REGISTER | (~value);
 
-  switch (value){
-
-    case STATUS::CARRY:
-      STATUS_REGISTER.FLAGS.CARRY = condition;
-
-    case STATUS::ZERO:
-      STATUS_REGISTER.FLAGS.ZERO = condition;
-
-    case STATUS::INTERRUPT_DISABLE:
-      STATUS_REGISTER.FLAGS.INTERRUPT_DISABLE = condition;
-
-    case STATUS::DECIMAL:
-      STATUS_REGISTER.FLAGS.DECIMAL = condition;
-
-    case STATUS::OVERFLOW:
-      STATUS_REGISTER.FLAGS.OVERFLOW = condition;
-
-    case STATUS::NEGATIVE:
-      STATUS_REGISTER.FLAGS.NEGATIVE = condition;
-  }
     
 }
 
+//Helper function for getting flags TODO
+bool CPU_6502::GET_FLAG(STATUS value){
+
+  return STATUS_REGISTER & value != 0x00; //If flag is clear, then this evaluates to false 
+    
+}
