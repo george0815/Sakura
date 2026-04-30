@@ -40,7 +40,9 @@ void CPU_6502::RESET_HANDLER(){
   X = 0x00;
   Y = 0x00;
 
-
+  //Reset stack pointer, technically the stack pointer is initally xFF
+  //But since the PC and status register are pushed at start up, it is effectively 0xFD
+  SP = 0xFD;
 
   //construct new PC from vecor 
   uint8_t lo = read(RESET_VECTOR);
@@ -48,7 +50,7 @@ void CPU_6502::RESET_HANDLER(){
   PC = (hi << 8) | lo;
 
   //Set cycles 
-  CYCLES++;
+  CYCLES = 8;
 
 }
 
@@ -70,8 +72,8 @@ void CPU_6502::IRQ_HANDLER(){
 
 
   //construct new PC from vecor 
-  uint8_t lo = read(RESET_VECTOR);
-  uint8_t hi = read(RESET_VECTOR + 1);
+  uint8_t lo = read(IRQ_VECTOR);
+  uint8_t hi = read(IRQ_VECTOR + 1);
   PC = (hi << 8) | lo;
 
   //Set cycles 
