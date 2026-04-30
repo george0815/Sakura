@@ -60,24 +60,28 @@ void CPU_6502::RESET_HANDLER(){
 //The current instruction finishes, PC and status register are stored on the stack,
 //then a new PC is loaded from the IRQ vector 
 void CPU_6502::IRQ_HANDLER(){
-  
-  //clear status register except unused bit
-  STATUS_REGISTER = 0x00 | UNUSED;
+ 
+  if(!GET_FLAG(I)){
 
-  //clear other registers
-  A = 0x00;
-  X = 0x00;
-  Y = 0x00;
+    //Push program counter to the stack 
+    push((PC >> 8) & 0x00FF); //push hi byte first since then the lo byte will be pulled first
+    push(PC & 0x00FF) //push lo byte
 
 
+    //Push status register 
+    push(STATUS_REGISTER);
 
-  //construct new PC from vecor 
-  uint8_t lo = read(IRQ_VECTOR);
-  uint8_t hi = read(IRQ_VECTOR + 1);
-  PC = (hi << 8) | lo;
 
-  //Set cycles 
-  CYCLES++;
+    //construct new PC from vecor 
+    uint8_t lo = read(IRQ_VECTOR);
+    uint8_t hi = read(IRQ_VECTOR + 1);
+    PC = (hi << 8) | lo;
+
+    //Set cycles 
+    CYCLES = 7;
+
+  }
+
 
 }
 
