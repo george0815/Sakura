@@ -1,11 +1,22 @@
 #pragma once 
 #include <string>
+#include <vector>
 #include "../BUS/bus.h"
+
+
+//constants 
+constexpr size_t NES_HEADER_SIZE = 16;
+constexpr size_t PRG_BANK_CHUNK_SIZE = 16 * 1024;
+constexpr size_t CHR_CHUNK_SIZE = 8 * 1024;
+constexpr size_t PRG_RAM_SIZE = 8 * 1024; 
+
+
+
 
 //Represents the header for the iNES format
 stuct HEADER {
 
-  char name[4]; //marks the beginning of the file
+  char NAME[4]; //marks the beginning of the file
                 //which should be the bytes for "NES" in ASCII followed by the MSDOS EOF
   uint8_t PRG_CHUNKS; //Size of PRG ROM in 16KB units 
   uint8_t CHR_CHUNKS; //Size of CHR ROM in 8KB units
