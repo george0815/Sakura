@@ -29,7 +29,7 @@ void CPU_6502::BRANCH(uint16_t target, bool condition){
 
 //Reset, basically just resets the CPU to a known state
 //The status register is cleared except for the unused bit
-//A new program counter is then read form the reset vector, which is 0xFFFC
+//A new program counter is then read from the reset vector, which is 0xFFFC
 void CPU_6502::RESET_HANDLER(){
   
   //clear status register except unused bit
@@ -68,7 +68,10 @@ void CPU_6502::IRQ_HANDLER(){
     push(PC & 0x00FF) //push lo byte
 
 
-    //Push status register 
+    //Set flags and push status register 
+    SET_FLAG(B, 0);
+    SET_FLAG(UNUSED, 1);
+    SET_FLAG(INTERRUPT_DISABLE, 1);
     push(STATUS_REGISTER);
 
 
@@ -85,28 +88,29 @@ void CPU_6502::IRQ_HANDLER(){
 
 }
 
-//Reset, basically just resets the CPU to a known state
-//The status register is cleared except for the unused bit
-//A new program counter is then read form the reset vector, which is 0xFFFC
-void CPU_6502::RESET_HANDLER(){
+//NMI, basically the same as an IRQ but it cannot be disabled
+//A new program counter is then read from the NMI vector, which is 0xFFFA
+void CPU_6502::NMI_HANDLER(){
   
-  //clear status register except unused bit
-  STATUS_REGISTER = 0x00 | UNUSED;
-
-  //clear other registers
-  A = 0x00;
-  X = 0x00;
-  Y = 0x00;
+    //Push program counter to the stack 
+    push((PC >> 8) & 0x00FF); //push hi byte first since then the lo byte will be pulled first
+    push(PC & 0x00FF) //push lo byte
 
 
+    //Set flags and push status register 
+    SET_FLAG(B, 0);
+    SET_FLAG(UNUSED, 1);
+    SET_FLAG(INTERRUPT_DISABLE, 1);
+    push(STATUS_REGISTER);
 
-  //construct new PC from vecor 
-  uint8_t lo = read(RESET_VECTOR);
-  uint8_t hi = read(RESET_VECTOR + 1);
-  PC = (hi << 8) | lo;
 
-  //Set cycles 
-  CYCLES++;
+    //construct new PC from vecor 
+    uint8_t lo = read(NMI_VECTOR);
+    uint8_t hi = read(NMI_VECTOR + 1);
+    PC = (hi << 8) | lo;
+
+    //Set cycles 
+    CYCLES = 8;
 
 }
 
