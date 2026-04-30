@@ -83,6 +83,11 @@ public:
   uint8_t read(uint16_t addr);
   void write(uint16_t addr, uint8_t data);
 
+
+  //Push and pull to/from stack
+  uint8_t pull();
+  void push(uint8_t data);
+
 private:
   // INDEXED ADDRESSING MODES
   uint16_t ZERO_PAGE_INDEXED_Y();
