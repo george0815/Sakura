@@ -14,12 +14,24 @@ public:
   void CPU_6502::BUILD_LOOKUP();
 
 
+  //Handles reset 
+  void RESET_HANDLER();
+  
 
-  //Helper function for branching TODO
+
+  //Handles normal IRQ 
+  void IRQ_HANDLER();
+
+
+  //Handles NMI
+  void NMI_HANDLER();
+
+
+  //Helper function for branching 
   void CPU_6502::BRANCH(uint16_t target, bool condition);
 
 
-  //Helper function for setting flags TODO
+  //Helper function for setting flags
   void CPU_6502::SET_FLAG(STATUS value, bool condition);
 
   // The bus, the CPU will never talk to the PPU directly but rather through the
@@ -48,6 +60,13 @@ public:
 
   // 1 byte stack pointer, accessed using interupts
   uint8_t SP = 0x00;
+
+  //Vector constants for interupts
+  //during an interrupt, the CPU will push the current program counter to the stack
+  //then load a new PC from one of the predetermined vectors 
+  constexpr NMI_VECTOR = 0xFFFA;
+  constexpr RESET_VECTOR = 0xFFFC;
+  constexpr IRQ_VECTOR = 0xFFFE;
 
 
   //status enum
