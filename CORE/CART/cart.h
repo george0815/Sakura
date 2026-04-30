@@ -2,33 +2,38 @@
 #include <string>
 #include "../BUS/bus.h"
 
+//Represents the header for the iNES format
+stuct HEADER {
 
-//main class for a cartridge
+  char name[4]; //marks the beginning of the file
+                //which should be the bytes for "NES" in ASCII followed by the MSDOS EOF
+  uint8_t PRG_CHUNKS; //Size of PRG ROM in 16KB units 
+  uint8_t CHR_CHUNKS; //Size of CHR ROM in 8KB units
+  uint8_t FLAGS_6; //Mapper, mirroring, battery, trainer
+  uint8_t FLAGS_7; //Mapper, VS/Playchoice, NES 2.0
+  uint8_t FLAGS_8; //PRG-RAM size (rarely used)
+  uint8_t FLAGS_9; //TV system (rarely used)
+  uint8_t FLAGS_10; //Basically same as 9
+  uint8_t PADDING[5] //Unused padding
 
-class CART {
-
-  public:
-   
-    bool HAS_TRAINER();
-
-    //The bus, the PRGROM data will be passed to the bus
-    BUS* B;  
-    
-    
-    //Reads file and maps data to a CART object 
-    void PARSE_CART(std::string filename);
-
-  private:
+}
 
 
-    //Parses first 4 bytes (bytes 0-3), in the iNES format this should be the ASCII codes for "NES", followed by the MSDOS EOF
-    bool IS_VALID_NES_ROM();
+//Represents the actual ROM, including the header 
+//Right now (4/30/2026) I have not implemented mappers or mirroring
+struct CART {
+
+  iNES_HEADER HEADER {};
+  std::vector<uint8_t> PRG;
+  std::vector<uint8_t> CHR;
+  bool USES_CHR_RAM = false;
+  bool USES_BATTERY_BACKED_SRAM = false;
+  uint32_t PRG_RAM_SIZE = 0;
+  uint8_t MAPPER_ID = 0;
+
+}
 
 
-    
+bool PARSE_FILE(std::string filename, CART& cartridge);
 
 
-
-
-
-};
