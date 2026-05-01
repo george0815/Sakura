@@ -11,6 +11,9 @@ class BUS;
 class CPU_6502 {
 
 public:
+  // Builds lookup table on initialization
+  CPU_6502();
+
   // Builds lookup table, which is basically an vector of INSTRUCTION structs
   // using the opcode as the index
   void BUILD_LOOKUP();

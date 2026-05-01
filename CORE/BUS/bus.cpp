@@ -77,12 +77,12 @@ void BUS::write(uint16_t addr, uint8_t data) {
 
 void BUS::connect_cpu(CPU_6502 &cpu) {
   CPU = &cpu;
-  cout << "BUS <- CPU";
+  cout << "BUS <- CPU\n" << endl;
 }
 
 void BUS::insert_cartridge(CART &cart) { PRG_ROM = cart.PRG; }
 
 void BUS::step() {
-  cout << "STEP CPU";
+  cout << "STEP CPU\n" << endl;
   CPU->step();
 }

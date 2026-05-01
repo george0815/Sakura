@@ -120,24 +120,36 @@ void CPU_6502::push(uint8_t data) {
   SP--;
 }
 
+CPU_6502::CPU_6502() { BUILD_LOOKUP(); }
+
 void CPU_6502::step() {
 
+  cout << CYCLES << endl;
+
   // No cycles left, time to execute another instruction
-  // if (CYCLES > 0) {
-  // fetch instruction using PC
+  if (CYCLES == 0) {
 
-  uint8_t opcode_byte = read(PC++);
-  cout << to_string(opcode_byte);
-  // OPCODE &op = LOOKUP[opcode_byte];
+    // fetch instruction using PC
+    uint8_t opcode_byte = read(PC++);
+    cout << to_string(opcode_byte) << endl;
+    OPCODE &op = LOOKUP[opcode_byte];
 
-  // Execute addressing mode function
-  // uint16_t addr = op.addr_mode();
-  // op.opcode(addr);
+    // Reset page crossed
+    PAGE_CROSSED = false;
 
-  //} else {
-  // supposed to step the PPU 3 times here, but since the PPU isnt implemented
-  // yet, do nothing
-  //}
+    // Execute addressing mode function
+    uint16_t addr = (this->*op.addr_mode)();
+    // Set cycles
+    CYCLES = op.cycles;
+    // Execute instruction
+    //(this->*op.opcode)(addr);
+
+    if (PAGE_CROSSED) {
+      CYCLES++;
+    }
+  }
+
+  CYCLES--;
 }
 
 // Pull a value from the stack on page one

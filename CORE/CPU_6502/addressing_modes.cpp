@@ -1,6 +1,11 @@
 #pragma once
+
 #include "core.h"
 #include <cstdint>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 /*SOME EXPLANATIONS ABOUT ADDRESSING MODES
  *
@@ -49,7 +54,10 @@ uint16_t CPU_6502::ACCUMULATOR() { return 0; }
 // counter, then increments
 // 3. Opcode then uses that as the operand address for the operation (LDA, STA,
 // etc)
-uint16_t CPU_6502::IMMEDIATE() { return PC++; }
+uint16_t CPU_6502::IMMEDIATE() {
+  cout << to_string(PC) << endl;
+  return PC++;
+}
 
 // For zero page addressing the operand address is the data at the address that
 // is the value of the program counter, the data that is returned from read is
