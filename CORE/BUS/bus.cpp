@@ -1,7 +1,10 @@
 #include "bus.h"
 #include <array>
 #include <cstdint>
+#include <iostream>
 #include <vector>
+
+using namespace std;
 
 /*The CPU has an addressable range of 64KB, here is the memory map chart
  * curtisey (that is definitely not how you spell it lol) of the NESDEV wiki
@@ -72,6 +75,9 @@ void BUS::write(uint16_t addr, uint8_t data) {
     CPU_RAM[addr & 0x07FF] = data; // here we mirror it every 2KB again
 }
 
-void BUS::connect_cpu(CPU_6502 &cpu) { CPU = &cpu; }
+void BUS::connect_cpu(CPU_6502 &cpu) {
+  CPU = &cpu;
+  cout << "BUS <- CPU";
+}
 
 void BUS::insert_cartridge(CART &cart) { PRG_ROM = cart.PRG; }

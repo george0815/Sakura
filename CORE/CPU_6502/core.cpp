@@ -1,5 +1,8 @@
 #include "core.h"
 #include <cstdint>
+#include <iostream>
+
+using namespace std;
 
 // Helper function for branching, takes in a condition and a target
 // checks for page crossing, then sets new PC
@@ -136,7 +139,10 @@ void CPU_6502::SET_FLAG(STATUS value, bool condition) {
       condition ? STATUS_REGISTER | (value) : STATUS_REGISTER | (~value);
 }
 
-void CPU_6502::connect_bus(BUS *b) { B = b; }
+void CPU_6502::connect_bus(BUS *b) {
+  B = b;
+  cout << "CPU <- BUS";
+}
 
 // Helper function for getting flags
 bool CPU_6502::GET_FLAG(STATUS value) {

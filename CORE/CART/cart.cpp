@@ -61,15 +61,9 @@ bool PARSE_FILE(string filename, CART &cartridge) {
   }
 
   // For testing TODO REMOVE LATER
-  cout << "NES";
-
-  for (uint8_t byte : cartridge.PRG) {
-    cout << to_string(byte);
-  }
+  cout << "NES\n";
+  return true;
 
   // Parse flags, this is mainly for the PPU, and since I want a fully working
   // CPU, I'll implement this later
-  //
-  //
-  //
 }
