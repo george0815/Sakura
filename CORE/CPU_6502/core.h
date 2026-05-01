@@ -189,20 +189,20 @@ private:
   // Struct representing an opcode, this is so that an opcode's corresponding
   // instruction and addressing mode can be called easily in the CPU's clock
   // function without having a huge fucking switch statement
-  typedef struct {
+  struct OPCODE {
+
+    const char *mnemonic; // used for logging
 
     int cycles; // number of cycles, some instructions may take multiple cycles
                 // so its important to know
 
-    std::string mnemonic; // used for logging
+    int bytes; // amount of bytes the instruction takes, used for debugging
 
-    int bytes; // how many bytes the total opcode is
+    void (CPU_6502::*opcode)(uint16_t); // pointer to the opcode's instruction
 
-    void (*opcode)(uint16_t); // pointer to the opcode's instruction
-
-    uint16_t (*addr_mode)(void); // pointer to the opcode's addressing mode
-
-  } OPCODE;
+    uint16_t (CPU_6502::*addr_mode)(
+        void); // pointer to the opcode's addressing mode
+  };
 
   // Lookup table, this is basically the brain of the implementation, it is an
   // array of OPCODE structs using the opcode as the index for each execution of

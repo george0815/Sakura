@@ -1,5 +1,6 @@
 #include "core.h"
 #include <cstdint>
+#include <sys/types.h>
 
 // OFFICIAL INSTRUCTIONS
 
@@ -229,3 +230,39 @@ void CPU_6502::TYA(uint16_t addr) {}
 // UNIMPLEMENTED/INVALID
 
 void CPU_6502::XXX(uint16_t addr) {}
+
+/// BUILD LOOKUP TABLE
+void CPU_6502::BUILD_LOOKUP() {
+
+  // Lambda for adding instructions to the lookup table
+  auto INSERT_INSTRUCTION = [this](uint8_t opcode_byte, const char *mnemonic,
+                                   int cycles,
+                                   void (CPU_6502::*opcode)(uint16_t),
+                                   uint16_t (CPU_6502::*addr_mode)()) {
+    auto instruciton_length =
+        [&](uint16_t (CPU_6502::*addr_mode)()) -> uint8_t {
+      if (addr_mode == &CPU_6502::IMPLICIT ||
+          addr_mode == &CPU_6502::ACCUMULATOR) {
+        return 1;
+      }
+      if (addr_mode == &CPU_6502::RELATIVE ||
+          addr_mode == &CPU_6502::IMMEDIATE ||
+          addr_mode == &CPU_6502::ZERO_PAGE ||
+          addr_mode == &CPU_6502::ZERO_PAGE_INDEXED_X ||
+          addr_mode == &CPU_6502::ZERO_PAGE_INDEXED_Y ||
+          addr_mode == &CPU_6502::INDEXED_INDIRECT ||
+          addr_mode == &CPU_6502::INDIRECT_INDEXED) {
+        return 2;
+      }
+      return 3;
+    };
+
+    LOOKUP[opcode_byte] = {mnemonic, cycles, instruciton_length(addr_mode),
+                           opcode, addr_mode};
+  };
+
+  // Fill lookup table with NOP
+  for (auto &inst : LOOKUP) {
+    inst = {"NOP", 2, 1, &CPU_6502::NOP, &CPU_6502::IMPLICIT};
+  };
+}
