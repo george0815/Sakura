@@ -4,38 +4,30 @@
 #include <array>
 #include <cstdint>
 #include <string>
+#include <sys/types.h>
+
+class BUS;
 
 class CPU_6502 {
 
 public:
+  // Builds lookup table, which is basically an vector of INSTRUCTION structs
+  // using the opcode as the index
+  void BUILD_LOOKUP();
 
-
-  //Builds lookup table, which is basically an vector of INSTRUCTION structs using the opcode as the index
-  void CPU_6502::BUILD_LOOKUP();
-
-
-  //Handles reset 
+  // Handles reset
   void RESET_HANDLER();
-  
 
-
-  //Handles normal IRQ 
+  // Handles normal IRQ
   void IRQ_HANDLER();
 
-
-  //Handles NMI
+  // Handles NMI
   void NMI_HANDLER();
 
-
-  //Helper function for branching 
+  // Helper function for branching
   void BRANCH(uint16_t target, bool condition);
 
-
-  //Helper function for setting flags
-  void SET_FLAG(STATUS value, bool condition);
-
-
-  //Helper function for getting flags
+  // Helper function for getting flags
   void GET_FLAG();
 
   // The bus, the CPU will never talk to the PPU directly but rather through the
@@ -65,39 +57,50 @@ public:
   // 1 byte stack pointer, accessed using interupts
   uint8_t SP = 0x00;
 
-  //Vector constants for interupts
-  //during an interrupt, the CPU will push the current program counter to the stack
-  //then load a new PC from one of the predetermined vectors 
-  constexpr NMI_VECTOR = 0xFFFA;
-  constexpr RESET_VECTOR = 0xFFFC;
-  constexpr IRQ_VECTOR = 0xFFFE;
+  // Vector constants for interupts
+  // during an interrupt, the CPU will push the current program counter to the
+  // stack then load a new PC from one of the predetermined vectors
+  const uint16_t NMI_VECTOR = 0xFFFA;
+  const uint16_t RESET_VECTOR = 0xFFFC;
+  const uint16_t IRQ_VECTOR = 0xFFFE;
 
+  // CONSTANTS
+  const uint16_t PAGE_MASK =
+      0xFF00; // Used for detected whether a page has been crossed
+  const uint16_t ZERO_PAGE_MASK =
+      0x00FF; // Used for mirroring address every 256 byte/ for zero page
 
-  //status enum
+  // Stores cycles for current instruction being executed
+  int CYCLES = 0;
+
+  // status enum
   enum STATUS {
 
     CARRY = 1 << 0,
     ZERO = 1 << 1,
     INTERRUPT_DISABLE = 1 << 2,
     DECIMAL = 1 << 3,
-    B = 1 << 4,
+    B_FLAG = 1 << 4,
     UNUSED = 1 << 5,
     OVERFLOW = 1 << 6,
     NEGATIVE = 1 << 7,
 
-  }
+  };
 
-    
+  // Helper function for setting flags
+  void SET_FLAG(STATUS value, bool condition);
+
+  // Helper function for setting flags
+  bool GET_FLAG(STATUS value);
+
   // status register
   uint8_t STATUS_REGISTER = 0x00 | STATUS::UNUSED;
-
 
   // Read and write
   uint8_t read(uint16_t addr);
   void write(uint16_t addr, uint8_t data);
 
-
-  //Push and pull to/from stack
+  // Push and pull to/from stack
   uint8_t pull();
   void push(uint8_t data);
 

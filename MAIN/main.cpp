@@ -1,13 +1,12 @@
-#include "../CORE/CART/cart.h"
 #include "main.h"
+#include "../CORE/CART/cart.h"
 
+int main(int arc, char *argv[]) {
 
-int main(int arc, char* argv[]){
+  CART cart;
 
   bus.insert_cartridge(cart);
-  bus.connect_cpu(&cpu);
+  bus.connect_cpu(cpu);
   cpu.connect_bus(&bus);
-  cpu.reset();
-
-  
+  cpu.RESET_HANDLER();
 }
