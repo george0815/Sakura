@@ -1,6 +1,10 @@
 #include "main.h"
 #include "../CORE/CART/cart.h"
 
+#include <iostream>
+
+using namespace std;
+
 int main(int arc, char *argv[]) {
 
   CART cart;

@@ -9,14 +9,14 @@ set (CMAKE_CXX_STANDARD 17)
 
 
 #collect all surce file
-file(GLOB_RECURSE SRC 
+file(GLOB_RECURSE SRC CONFIGURE_DEPENDS 
   "MAIN/*.cpp"
   "CORE/*.cpp"
 )
 
 
-add_executable(emulator $(SRC))
+add_executable(sakura ${SRC})
 
 
 #include directories
-target_include_directories(emulator PRIVATE CORE)
+target_include_directories(sakura PRIVATE CORE)

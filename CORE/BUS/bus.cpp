@@ -28,7 +28,6 @@ uint8_t BUS::read(uint16_t addr) {
   // If address is within the 8KB addressable range for the CPU RAM
   if (addr < 0x2000) {
 
-
     // mirrored every 2KB, ANDing (size - 1) is the basically the same as %
     // size (as long as your dealing with binary numbers) this is because when
     // you decrement a power of 2 (2048, etc) by 1, in binary all the lower
@@ -72,3 +71,7 @@ void BUS::write(uint16_t addr, uint8_t data) {
   if (addr < 0x2000)
     CPU_RAM[addr & 0x07FF] = data; // here we mirror it every 2KB again
 }
+
+void BUS::connect_cpu(CPU_6502 &cpu) {}
+
+void BUS::insert_cartridge(CART &cpu) {}
