@@ -1,18 +1,21 @@
 #include "cart.h"
+#include <cstdint>
 #include <cstring>
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
 
-bool PARSE_NES(std::string filename, CART &cartridge) {
+using namespace std;
+
+bool PARSE_FILE(string filename, CART &cartridge) {
 
   // Read file using file name
-  std::ifstream file(filename, std::ios::binary); // read file as binary
+  ifstream file(filename, ios::binary); // read file as binary
 
   // Create vector of bytes
-  std::vector<uint8_t> data((std::istreambuf_iterator<char>(file)),
-                            std::istreambuf_iterator<char>());
+  vector<uint8_t> data((istreambuf_iterator<char>(file)),
+                       istreambuf_iterator<char>());
 
   // Validate file size
   if (data.size() < NES_HEADER_SIZE) {
@@ -20,7 +23,7 @@ bool PARSE_NES(std::string filename, CART &cartridge) {
   }
 
   // Copy the first 16 bytes into the header file
-  std::memcpy(&cartridge.HEADER, data.data(), NES_HEADER_SIZE);
+  memcpy(&cartridge.HEADER, data.data(), NES_HEADER_SIZE);
 
   // Validate header (if first 4 bytes are ASCII "NES" and MSDOS EOF)
   if (cartridge.HEADER.NAME[0] != 'N' || cartridge.HEADER.NAME[1] != 'E' ||
@@ -57,6 +60,16 @@ bool PARSE_NES(std::string filename, CART &cartridge) {
                          data.begin() + offset + chr_size);
   }
 
+  // For testing TODO REMOVE LATER
+  cout << "NES";
+
+  for (uint8_t byte : cartridge.PRG) {
+    cout << to_string(byte);
+  }
+
   // Parse flags, this is mainly for the PPU, and since I want a fully working
   // CPU, I'll implement this later
+  //
+  //
+  //
 }

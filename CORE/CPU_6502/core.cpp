@@ -136,7 +136,7 @@ void CPU_6502::SET_FLAG(STATUS value, bool condition) {
       condition ? STATUS_REGISTER | (value) : STATUS_REGISTER | (~value);
 }
 
-void CPU_6502::connect_bus(BUS *b) {}
+void CPU_6502::connect_bus(BUS *b) { B = b; }
 
 // Helper function for getting flags
 bool CPU_6502::GET_FLAG(STATUS value) {

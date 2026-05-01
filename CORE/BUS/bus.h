@@ -5,8 +5,9 @@
 #include <cstdint>
 #include <vector>
 
-class CPU_6502;
 struct CART;
+
+class CPU_6502;
 
 class BUS {
 
@@ -15,7 +16,7 @@ public:
   // CPU has access to 2KB of internal RAM, its fixed so I'll be using an array
 
   // Program ROM can either be 16KB or 32KB, so I'll be using a vector
-  std::vector<uint16_t> PRG_ROM;
+  std::vector<uint8_t> PRG_ROM;
 
   void insert_cartridge(CART &cart);
 
@@ -23,4 +24,7 @@ public:
 
   uint8_t read(uint16_t addr);
   void write(uint16_t addr, uint8_t data);
+
+  // COMPONENTS
+  CPU_6502 *CPU;
 };
