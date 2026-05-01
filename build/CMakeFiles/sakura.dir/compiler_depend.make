@@ -1201,6 +1201,9 @@ CMakeFiles/sakura.dir/MAIN/main.cpp.o: /home/Hunter/Documents/Github/sakura/MAIN
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h
 
+CMakeFiles/sakura.dir/MAIN/sakura.cpp.o: /home/Hunter/Documents/Github/sakura/MAIN/sakura.cpp \
+  /usr/include/stdc-predef.h
+
 sakura: /usr/lib/Scrt1.o \
   /usr/lib/crti.o \
   /usr/lib/crtn.o \
@@ -1225,8 +1228,11 @@ sakura: /usr/lib/Scrt1.o \
   CMakeFiles/sakura.dir/CORE/CPU_6502/opcodes.cpp.o \
   CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o \
   CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o \
-  CMakeFiles/sakura.dir/MAIN/main.cpp.o
+  CMakeFiles/sakura.dir/MAIN/main.cpp.o \
+  CMakeFiles/sakura.dir/MAIN/sakura.cpp.o
 
+
+CMakeFiles/sakura.dir/MAIN/sakura.cpp.o:
 
 CMakeFiles/sakura.dir/MAIN/main.cpp.o:
 
@@ -1239,6 +1245,10 @@ CMakeFiles/sakura.dir/MAIN/main.cpp.o:
 /usr/include/c++/15.2.1/bits/stl_algobase.h:
 
 /usr/include/gnu/stubs-64.h:
+
+CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o:
+
+/usr/include/c++/15.2.1/bits/requires_hosted.h:
 
 /usr/include/bits/types/error_t.h:
 
@@ -1698,6 +1708,8 @@ CMakeFiles/sakura.dir/CORE/CPU_6502/core.cpp.o:
 
 /home/Hunter/Documents/Github/sakura/MAIN/main.cpp:
 
+/home/Hunter/Documents/Github/sakura/MAIN/sakura.cpp:
+
 /usr/include/c++/15.2.1/bits/functional_hash.h:
 
 /usr/lib/crtn.o:
@@ -1713,10 +1725,6 @@ CMakeFiles/sakura.dir/CORE/CPU_6502/core.cpp.o:
 /usr/lib/libgcc_s.so:
 
 /usr/lib/libgcc_s.so.1:
-
-/usr/include/c++/15.2.1/bits/requires_hosted.h:
-
-CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o:
 
 /usr/lib/libm.so:
 

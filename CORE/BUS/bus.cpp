@@ -81,3 +81,8 @@ void BUS::connect_cpu(CPU_6502 &cpu) {
 }
 
 void BUS::insert_cartridge(CART &cart) { PRG_ROM = cart.PRG; }
+
+void BUS::step() {
+  cout << "STEP CPU";
+  CPU->step();
+}

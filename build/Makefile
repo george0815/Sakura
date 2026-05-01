@@ -346,6 +346,30 @@ MAIN/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/MAIN/main.cpp.s
 .PHONY : MAIN/main.cpp.s
 
+MAIN/sakura.o: MAIN/sakura.cpp.o
+.PHONY : MAIN/sakura.o
+
+# target to build an object file
+MAIN/sakura.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/MAIN/sakura.cpp.o
+.PHONY : MAIN/sakura.cpp.o
+
+MAIN/sakura.i: MAIN/sakura.cpp.i
+.PHONY : MAIN/sakura.i
+
+# target to preprocess a source file
+MAIN/sakura.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/MAIN/sakura.cpp.i
+.PHONY : MAIN/sakura.cpp.i
+
+MAIN/sakura.s: MAIN/sakura.cpp.s
+.PHONY : MAIN/sakura.s
+
+# target to generate assembly for a file
+MAIN/sakura.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/MAIN/sakura.cpp.s
+.PHONY : MAIN/sakura.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -382,6 +406,9 @@ help:
 	@echo "... MAIN/main.o"
 	@echo "... MAIN/main.i"
 	@echo "... MAIN/main.s"
+	@echo "... MAIN/sakura.o"
+	@echo "... MAIN/sakura.i"
+	@echo "... MAIN/sakura.s"
 .PHONY : help
 
 

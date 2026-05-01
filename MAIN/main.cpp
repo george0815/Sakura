@@ -15,4 +15,10 @@ int main(int arc, char *argv[]) {
   bus.connect_cpu(cpu);
   cpu.connect_bus(&bus);
   cpu.RESET_HANDLER();
+
+  cout << "\nDONE";
+
+  for (int i = 0; i < 100; i++) {
+    bus.step();
+  }
 }

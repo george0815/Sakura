@@ -11,6 +11,7 @@ sakura: \
   CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o \
   CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o \
   CMakeFiles/sakura.dir/MAIN/main.cpp.o \
+  CMakeFiles/sakura.dir/MAIN/sakura.cpp.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
@@ -62,6 +63,8 @@ CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o:
 CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o:
 
 CMakeFiles/sakura.dir/MAIN/main.cpp.o:
+
+CMakeFiles/sakura.dir/MAIN/sakura.cpp.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.so:
 

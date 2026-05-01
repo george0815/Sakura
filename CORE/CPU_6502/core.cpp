@@ -1,6 +1,7 @@
 #include "core.h"
 #include <cstdint>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -117,6 +118,26 @@ void CPU_6502::push(uint8_t data) {
 
   write(0x0100 + SP, data);
   SP--;
+}
+
+void CPU_6502::step() {
+
+  // No cycles left, time to execute another instruction
+  // if (CYCLES > 0) {
+  // fetch instruction using PC
+
+  uint8_t opcode_byte = read(PC++);
+  cout << to_string(opcode_byte);
+  // OPCODE &op = LOOKUP[opcode_byte];
+
+  // Execute addressing mode function
+  // uint16_t addr = op.addr_mode();
+  // op.opcode(addr);
+
+  //} else {
+  // supposed to step the PPU 3 times here, but since the PPU isnt implemented
+  // yet, do nothing
+  //}
 }
 
 // Pull a value from the stack on page one

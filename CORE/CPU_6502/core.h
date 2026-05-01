@@ -104,6 +104,9 @@ public:
   uint8_t pull();
   void push(uint8_t data);
 
+  // executed one instruction
+  void step();
+
 private:
   // INDEXED ADDRESSING MODES
   uint16_t ZERO_PAGE_INDEXED_Y();

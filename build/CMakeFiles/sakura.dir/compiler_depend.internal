@@ -1210,6 +1210,10 @@ CMakeFiles/sakura.dir/MAIN/main.cpp.o
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h
 
+CMakeFiles/sakura.dir/MAIN/sakura.cpp.o
+ /home/Hunter/Documents/Github/sakura/MAIN/sakura.cpp
+ /usr/include/stdc-predef.h
+
 sakura
  /usr/lib/Scrt1.o
  /usr/lib/crti.o
@@ -1236,4 +1240,5 @@ sakura
  /home/Hunter/Documents/Github/sakura/build/CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o
  /home/Hunter/Documents/Github/sakura/build/CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o
  /home/Hunter/Documents/Github/sakura/build/CMakeFiles/sakura.dir/MAIN/main.cpp.o
+ /home/Hunter/Documents/Github/sakura/build/CMakeFiles/sakura.dir/MAIN/sakura.cpp.o
 

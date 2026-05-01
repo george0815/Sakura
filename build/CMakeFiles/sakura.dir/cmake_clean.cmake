@@ -18,6 +18,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o.d"
   "CMakeFiles/sakura.dir/MAIN/main.cpp.o"
   "CMakeFiles/sakura.dir/MAIN/main.cpp.o.d"
+  "CMakeFiles/sakura.dir/MAIN/sakura.cpp.o"
+  "CMakeFiles/sakura.dir/MAIN/sakura.cpp.o.d"
   "sakura"
   "sakura.pdb"
 )

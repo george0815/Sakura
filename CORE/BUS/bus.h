@@ -22,6 +22,8 @@ public:
 
   void connect_cpu(CPU_6502 &cpu);
 
+  void step();
+
   uint8_t read(uint16_t addr);
   void write(uint16_t addr, uint8_t data);
 
