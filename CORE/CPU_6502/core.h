@@ -188,6 +188,25 @@ private:
 
   // UNIMPLEMENTED/INVALID
   void XXX(uint16_t addr);
+  void KIL(uint16_t addr);
+  void SLO(uint16_t addr);
+  void RLA(uint16_t addr);
+  void SRE(uint16_t addr);
+  void RRA(uint16_t addr);
+  void SAX(uint16_t addr);
+  void LAX(uint16_t addr);
+  void DCP(uint16_t addr);
+  void ISC(uint16_t addr);
+  void ANC(uint16_t addr);
+  void ALR(uint16_t addr);
+  void ARR(uint16_t addr);
+  void AXS(uint16_t addr);
+  void LAS(uint16_t addr);
+  void SHX(uint16_t addr);
+  void SHY(uint16_t addr);
+  void TAS(uint16_t addr);
+  void XAA(uint16_t addr);
+  void LXA(uint16_t addr);
 
   // Struct representing an opcode, this is so that an opcode's corresponding
   // instruction and addressing mode can be called easily in the CPU's clock
