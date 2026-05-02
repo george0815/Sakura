@@ -6,15 +6,44 @@
 
 // Add withn carry, adds the carry flag and a memory value to the accumulator
 // carry flag is the set to the carry value coming out of bit 7
-void CPU_6502::ADC(uint16_t addr) {}
+void CPU_6502::ADC(uint16_t addr) {
+
+  const uint16_t value = read(addr);
+  uint16_t sum = A + value + (GET_FLAG(CARRY) ? 1 : 0);
+  SET_FLAG(CARRY, sum > ZERO_PAGE_MASK);
+  SET_FLAG(ZERO, (sum & ZERO_PAGE_MASK) == 0);
+  SET_FLAG(OVERFLOW, (~(A ^ value) & (A ^ sum) & 0x80) != 0);
+  SET_FLAG(NEGATIVE, sum & 0x80);
+  A = (sum & ZERO_PAGE_MASK);
+}
 
 // Bitwise AND, ANDs a memory value with the accumulator, bit by bit
-void CPU_6502::AND(uint16_t addr) {}
+void CPU_6502::AND(uint16_t addr) {
+
+  A &= read(addr);
+  SET_FLAG(ZERO, A == 0);
+  SET_FLAG(NEGATIVE, A & 0x80);
+}
 
 // Arithmetic shift left, shifts all bits of a value one position to the left
 // bit 7 is shifted into the carry flag, and 0 is shifted into bit 0
 // equivalent to multiplying the unsigned value by 2
-void CPU_6502::ASL(uint16_t addr) {}
+void CPU_6502::ASL(uint16_t addr) {
+
+  if (LOOKUP[read(PC - 1)].addr_mode == &CPU_6502::ACCUMULATOR) {
+    SET_FLAG(CARRY, A & 0x80);
+    A <<= 1;
+    SET_FLAG(ZERO, A == 0);
+    SET_FLAG(NEGATIVE, A & 0x80);
+  } else {
+    uint8_t data = read(addr);
+    SET_FLAG(CARRY, data & 0x80);
+    data <<= 1;
+    write(addr, data);
+    SET_FLAG(ZERO, data == 0);
+    SET_FLAG(NEGATIVE, data & 0x80);
+  }
+}
 
 // Branch if carry clear, if the carry is clear then branches by adding the
 // offset to the PC offset is signed and has a range of -128 -> 127
@@ -28,12 +57,6 @@ void CPU_6502::BCS(uint16_t addr) {}
 // to the PC offset is signed and has a range of -128 -> 127
 void CPU_6502::BEQ(uint16_t addr) {}
 
-// Bit test, modifies flags but does not change memory or registers.
-// the zero flag is set depending on the reselt of the accumulator AND memory
-// value bits 7 and 6 of the memory value are loaded directly into the negative
-// and overflow flags
-void CPU_6502::BIT(uint16_t addr) {}
-
 // Branch if minus, if the negative flag is set then branches by adding the
 // offset to the PC offset is signed and has a range of -128 -> 127
 void CPU_6502::BMI(uint16_t addr) {}
@@ -46,15 +69,6 @@ void CPU_6502::BNE(uint16_t addr) {}
 // relative offset to the PC offset is signed and has a range of -128 -> 127
 void CPU_6502::BPL(uint16_t addr) {}
 
-// Break, software IRQ (interrupt request), triggers an IRQ
-// this instruction is the only way to trigger an IRQ via software
-// pushes the current PC and flags to the stack, sets the IRQ flag, and jumps to
-// the IRQ handler unlike a normal IRQ, sets the break flag in the flags byte
-// and triggers an interrupt even if the interrupt disable flag is set the
-// return address that is pushed to the stack skips the byte after the BRK
-// opcode
-void CPU_6502::BRK(uint16_t addr) {}
-
 // Branch if overflow clear, if the overflow flag is clear then branches by
 // adding the relative offset to the PC offset is signed and has a range of -128
 // -> 127
@@ -63,6 +77,37 @@ void CPU_6502::BVC(uint16_t addr) {}
 // Branch if overflow set, if the overflow flag is set then branches by adding
 // the relative offset to the PC offset is signed and has a range of -128 -> 127
 void CPU_6502::BVS(uint16_t addr) {}
+
+// Bit test, modifies flags but does not change memory or registers.
+// the zero flag is set depending on the reselt of the accumulator AND memory
+// value bits 7 and 6 of the memory value are loaded directly into the negative
+// and overflow flags
+void CPU_6502::BIT(uint16_t addr) {
+  const uint8_t data = read(addr);
+  SET_FLAG(ZERO, (A & data) == 0);
+  SET_FLAG(OVERFLOW, data & 0x40);
+  SET_FLAG(NEGATIVE, data & 0x80);
+}
+
+// Break, software IRQ (interrupt request), triggers an IRQ
+// this instruction is the only way to trigger an IRQ via software
+// pushes the current PC and flags to the stack, sets the IRQ flag, and jumps to
+// the IRQ handler unlike a normal IRQ, sets the break flag in the flags byte
+// and triggers an interrupt even if the interrupt disable flag is set the
+// return address that is pushed to the stack skips the byte after the BRK
+// opcode
+void CPU_6502::BRK(uint16_t addr) {
+  PC++;
+  push((PC >> 8) & 0xFF);
+  push(PC & 0xFF);
+  SET_FLAG(B_FLAG, true);
+  SET_FLAG(UNUSED, true);
+  push(STATUS_REGISTER);
+  SET_FLAG(INTERRUPT_DISABLE, true);
+  uint16_t lo = read(IRQ_VECTOR);
+  uint16_t hi = read(IRQ_VECTOR + 1);
+  PC = (hi << 8) | lo;
+}
 
 // Clear carry, clears the carry flag
 void CPU_6502::CLC(uint16_t addr) {}
@@ -610,8 +655,6 @@ void CPU_6502::BUILD_LOOKUP() {
   INSERT_INSTRUCTION(0xB2, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
   INSERT_INSTRUCTION(0xD2, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
   INSERT_INSTRUCTION(0xF2, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
-
-  // PROCEED FROM HERE =============================
 
   // SLO
   INSERT_INSTRUCTION(0x07, "SLO", 5, &CPU_6502::SLO, &CPU_6502::ZERO_PAGE);
