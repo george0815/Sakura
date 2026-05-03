@@ -187,8 +187,6 @@ private:
   void TYA(uint16_t addr);
 
   // UNIMPLEMENTED/INVALID
-  void XXX(uint16_t addr);
-  void KIL(uint16_t addr);
   void SLO(uint16_t addr);
   void RLA(uint16_t addr);
   void SRE(uint16_t addr);

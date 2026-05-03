@@ -183,7 +183,22 @@ void CPU_6502::LDY(uint16_t addr) {}
 // position to the right 0 is shifted into bit 7, and 0 is shifted to the carry
 // flag equivalent of dividing an unsigned integer by 2 and rounding down, with
 // the remainder in the carry flag
-void CPU_6502::LSR(uint16_t addr) {}
+void CPU_6502::LSR(uint16_t addr) {
+
+  if (LOOKUP[read(PC - 1)].addr_mode == &CPU_6502::ACCUMULATOR) {
+    SET_FLAG(CARRY, A & 0x10);
+    A >>= 1;
+    SET_FLAG(ZERO, A == 0);
+    SET_FLAG(NEGATIVE, false);
+  } else {
+    uint8_t data = read(addr);
+    SET_FLAG(CARRY, data & 0x10);
+    data >>= 1;
+    write(addr, data);
+    SET_FLAG(ZERO, data == 0);
+    SET_FLAG(NEGATIVE, false);
+  }
+}
 
 // No operation, literally just does fucking nothing and wastes space and CPU
 // cycles
@@ -274,26 +289,91 @@ void CPU_6502::TYA(uint16_t addr) {}
 
 // UNIMPLEMENTED/INVALID
 
-void CPU_6502::XXX(uint16_t addr) {}
-void CPU_6502::KIL(uint16_t addr) {}
 void CPU_6502::SLO(uint16_t addr) {}
+
 void CPU_6502::RLA(uint16_t addr) {}
+
 void CPU_6502::SRE(uint16_t addr) {}
+
 void CPU_6502::RRA(uint16_t addr) {}
+
 void CPU_6502::SAX(uint16_t addr) {}
+
 void CPU_6502::LAX(uint16_t addr) {}
+
 void CPU_6502::DCP(uint16_t addr) {}
+
 void CPU_6502::ISC(uint16_t addr) {}
+
 void CPU_6502::ANC(uint16_t addr) {}
-void CPU_6502::ALR(uint16_t addr) {}
-void CPU_6502::ARR(uint16_t addr) {}
-void CPU_6502::AXS(uint16_t addr) {}
-void CPU_6502::LAS(uint16_t addr) {}
-void CPU_6502::SHX(uint16_t addr) {}
-void CPU_6502::SHY(uint16_t addr) {}
-void CPU_6502::TAS(uint16_t addr) {}
-void CPU_6502::XAA(uint16_t addr) {}
-void CPU_6502::LXA(uint16_t addr) {}
+
+void CPU_6502::ALR(uint16_t addr) {
+  A = A & read(addr);
+  SET_FLAG(CARRY, A & 0x01);
+  A >>= 1;
+  SET_FLAG(ZERO, A == 0);
+  SET_FLAG(NEGATIVE, A & 0x80);
+}
+
+void CPU_6502::ARR(uint16_t addr) {
+  A = A & read(addr);
+  uint8_t carry = GET_FLAG(CARRY) ? 0x80 : 0x00;
+  uint8_t result = (A >> 1) | carry;
+  SET_FLAG(CARRY, result & 0x40);
+  SET_FLAG(OVERFLOW, ((result & 0x40) >> 6) ^ ((result & 0x20) >> 5));
+  A = result;
+  SET_FLAG(ZERO, A == 0);
+  SET_FLAG(ZERO, A & 0x80);
+}
+
+void CPU_6502::AXS(uint16_t addr) {
+  uint8_t value = read(addr);
+  uint16_t tmp = (A & X) - value;
+  SET_FLAG(CARRY, (tmp & 0x100) == 0);
+  X = tmp & ZERO_PAGE_MASK;
+  SET_FLAG(ZERO, X == 0);
+  SET_FLAG(NEGATIVE, X & 0x80);
+}
+
+void CPU_6502::LAS(uint16_t addr) {
+  uint8_t M = read(addr) & SP;
+  A = X = SP = M;
+  SET_FLAG(ZERO, M == 0);
+  SET_FLAG(NEGATIVE, M & 0x80);
+}
+
+void CPU_6502::SHX(uint16_t addr) {
+  uint16_t target = addr;
+  uint8_t value = X & ((target >> 8) + 1);
+  write(addr, value);
+}
+
+void CPU_6502::SHY(uint16_t addr) {
+  uint16_t target = addr;
+  uint8_t value = Y & ((target >> 8) + 1);
+  write(addr, value);
+}
+
+void CPU_6502::TAS(uint16_t addr) {
+  uint8_t target = read(addr);
+  uint8_t value = A & X;
+  SP = value;
+  write(addr, value & ((target >> 8) + 1));
+}
+
+void CPU_6502::XAA(uint16_t addr) {
+  uint8_t value = read(addr);
+  A = X & value;
+  SET_FLAG(ZERO, A == 0);
+  SET_FLAG(NEGATIVE, A & 0x80);
+}
+
+void CPU_6502::LXA(uint16_t addr) {
+  uint8_t value = read(addr);
+  A = X = (A | 0x00) & value;
+  SET_FLAG(ZERO, A == 0);
+  SET_FLAG(NEGATIVE, A & 0x80);
+}
 
 /// BUILD LOOKUP TABLE
 void CPU_6502::BUILD_LOOKUP() {
@@ -641,20 +721,6 @@ void CPU_6502::BUILD_LOOKUP() {
                      &CPU_6502::ABSOLUTE_INDEXED_X);
   INSERT_INSTRUCTION(0xFC, "NOP", 4, &CPU_6502::NOP,
                      &CPU_6502::ABSOLUTE_INDEXED_X);
-
-  // KIL
-  INSERT_INSTRUCTION(0x02, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
-  INSERT_INSTRUCTION(0x12, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
-  INSERT_INSTRUCTION(0x22, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
-  INSERT_INSTRUCTION(0x32, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
-  INSERT_INSTRUCTION(0x42, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
-  INSERT_INSTRUCTION(0x52, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
-  INSERT_INSTRUCTION(0x62, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
-  INSERT_INSTRUCTION(0x72, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
-  INSERT_INSTRUCTION(0x92, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
-  INSERT_INSTRUCTION(0xB2, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
-  INSERT_INSTRUCTION(0xD2, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
-  INSERT_INSTRUCTION(0xF2, "KIL", 0, &CPU_6502::KIL, &CPU_6502::IMPLICIT);
 
   // SLO
   INSERT_INSTRUCTION(0x07, "SLO", 5, &CPU_6502::SLO, &CPU_6502::ZERO_PAGE);
