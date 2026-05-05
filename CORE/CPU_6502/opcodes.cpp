@@ -289,23 +289,93 @@ void CPU_6502::TYA(uint16_t addr) {}
 
 // UNIMPLEMENTED/INVALID
 
-void CPU_6502::SLO(uint16_t addr) {}
+void CPU_6502::SLO(uint16_t addr) {
+  uint8_t data = read(addr);
+  SET_FLAG(CARRY, data & 0x80);
+  data <<= 1;
+  write(addr, data);
+  A |= data;
+  SET_FLAG(ZERO, A == 0);
+  SET_FLAG(NEGATIVE, A & 0x80);
+}
 
-void CPU_6502::RLA(uint16_t addr) {}
+void CPU_6502::RLA(uint16_t addr) {
+  uint8_t data = read(addr);
+  uint8_t carry = GET_FLAG(CARRY) ? 1 : 0;
+  uint8_t new_carry = (data & 0x80) ? 1 : 0;
+  data = (data << 1) | carry;
+  write(addr, data);
+  SET_FLAG(CARRY, new_carry);
+  A &= data;
+  SET_FLAG(ZERO, A == 0);
+  SET_FLAG(NEGATIVE, A & 0x80);
+}
 
-void CPU_6502::SRE(uint16_t addr) {}
+void CPU_6502::SRE(uint16_t addr) {
+  uint8_t data = read(addr);
+  SET_FLAG(CARRY, data & 0x01);
+  data >>= 1;
+  write(addr, data);
+  A ^= data;
+  SET_FLAG(ZERO, A == 0);
+  SET_FLAG(NEGATIVE, A & 0x80);
+}
 
-void CPU_6502::RRA(uint16_t addr) {}
+void CPU_6502::RRA(uint16_t addr) {
+  uint8_t data = read(addr);
+  uint8_t carry = GET_FLAG(CARRY) ? 0x80 : 0x00;
+  uint8_t new_carry = data & 0x01;
+  data = (data >> 1) | carry;
+  write(addr, data);
+  SET_FLAG(CARRY, new_carry);
+  uint16_t sum = A + data + (GET_FLAG(CARRY) ? 1 : 0);
+  SET_FLAG(CARRY, sum > ZERO_PAGE_MASK);
+  SET_FLAG(ZERO, (sum & ZERO_PAGE_MASK) == 0);
+  SET_FLAG(OVERFLOW, (~(A ^ data) & (A ^ sum) & 0x80) != 0);
+  SET_FLAG(NEGATIVE, sum & ZERO_PAGE_MASK);
+  A = sum;
+}
 
-void CPU_6502::SAX(uint16_t addr) {}
+void CPU_6502::SAX(uint16_t addr) {
+  uint8_t value = A & X;
+  write(addr, value);
+}
 
-void CPU_6502::LAX(uint16_t addr) {}
+void CPU_6502::LAX(uint16_t addr) {
+  uint8_t data = read(addr);
+  A = X = data;
+  SET_FLAG(ZERO, data == 0);
+  SET_FLAG(NEGATIVE, data & 0x80);
+}
 
-void CPU_6502::DCP(uint16_t addr) {}
+void CPU_6502::DCP(uint16_t addr) {
+  uint8_t data = read(addr);
+  write(addr, data);
+  uint16_t difference = A - data;
+  SET_FLAG(CARRY, A >= data);
+  SET_FLAG(ZERO, (difference & ZERO_PAGE_MASK) == 0);
+  SET_FLAG(NEGATIVE, difference & 0x80);
+}
 
-void CPU_6502::ISC(uint16_t addr) {}
+void CPU_6502::ISC(uint16_t addr) {
+  uint8_t data = read(addr) - 1;
+  write(addr, data);
+  uint16_t value = data ^ ZERO_PAGE_MASK;
+  uint16_t sum = A + value + (GET_FLAG(CARRY) ? 1 : 0);
+  SET_FLAG(CARRY, sum & PAGE_MASK);
+  SET_FLAG(ZERO, (sum & ZERO_PAGE_MASK) == 0);
+  SET_FLAG(OVERFLOW, ((sum ^ A) & (sum ^ value) & 0x80));
+  SET_FLAG(NEGATIVE, (sum & 0x80));
+  A = sum;
+}
 
-void CPU_6502::ANC(uint16_t addr) {}
+void CPU_6502::ANC(uint16_t addr) {
+  uint8_t value = read(addr);
+  A = A & value;
+  SET_FLAG(ZERO, A == 0);
+  SET_FLAG(CARRY, A & 0x80);
+  SET_FLAG(CARRY, A & 0x80);
+}
 
 void CPU_6502::ALR(uint16_t addr) {
   A = A & read(addr);
