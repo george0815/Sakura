@@ -14,9 +14,9 @@ int main(int arc, char *argv[]) {
   bus.insert_cartridge(cart);
   bus.connect_cpu(cpu);
   cpu.connect_bus(&bus);
-  cpu.RESET_HANDLER();
+  // cpu.RESET_HANDLER();
 
-  cout << "\nDONE";
+  cout << "\nDONE" << endl;
 
   for (int i = 0; i < 100; i++) {
     bus.step();

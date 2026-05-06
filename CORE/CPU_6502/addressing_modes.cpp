@@ -54,10 +54,7 @@ uint16_t CPU_6502::ACCUMULATOR() { return 0; }
 // counter, then increments
 // 3. Opcode then uses that as the operand address for the operation (LDA, STA,
 // etc)
-uint16_t CPU_6502::IMMEDIATE() {
-  cout << to_string(PC) << endl;
-  return PC++;
-}
+uint16_t CPU_6502::IMMEDIATE() { return PC++; }
 
 // For zero page addressing the operand address is the data at the address that
 // is the value of the program counter, the data that is returned from read is
@@ -84,7 +81,8 @@ uint16_t CPU_6502::ABSOLUTE() {
 // This is really only used for branch instructions
 uint16_t CPU_6502::RELATIVE() {
 
-  int8_t offset = read(PC++);
+  int8_t offset = static_cast<uint8_t>(read(PC++));
+  // cout << hex << (int)offset << endl;
   return (PC + offset);
 }
 

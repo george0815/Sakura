@@ -45,7 +45,7 @@ public:
   void connect_bus(BUS *bus);
 
   // 2 byte program counter, holds the address of the next opcode to be executed
-  uint16_t PC = 0x0000;
+  uint16_t PC = 0xC000;
 
   // 1 byte X register
   uint8_t X = 0x00;
@@ -58,7 +58,7 @@ public:
   uint8_t A = 0x00;
 
   // 1 byte stack pointer, accessed using interupts
-  uint8_t SP = 0x00;
+  uint8_t SP = 0xFD;
 
   // Vector constants for interupts
   // during an interrupt, the CPU will push the current program counter to the

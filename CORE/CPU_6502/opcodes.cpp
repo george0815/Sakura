@@ -1,6 +1,9 @@
 #include "core.h"
 #include <cstdint>
+#include <iostream>
 #include <sys/types.h>
+
+using namespace std;
 
 // OFFICIAL INSTRUCTIONS
 

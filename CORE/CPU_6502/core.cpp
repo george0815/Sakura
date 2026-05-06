@@ -124,25 +124,34 @@ CPU_6502::CPU_6502() { BUILD_LOOKUP(); }
 
 void CPU_6502::step() {
 
-  cout << CYCLES << endl;
-
   // No cycles left, time to execute another instruction
   if (CYCLES == 0) {
 
+    // DEBUG LOGS
+    cout << uppercase << hex << PC << " ";
+
     // fetch instruction using PC
     uint8_t opcode_byte = read(PC++);
-    cout << to_string(opcode_byte) << endl;
     OPCODE &op = LOOKUP[opcode_byte];
 
+    cout << hex << uppercase << (int)opcode_byte << " " << op.mnemonic << " $";
     // Reset page crossed
     PAGE_CROSSED = false;
 
     // Execute addressing mode function
     uint16_t addr = (this->*op.addr_mode)();
+    cout << hex << uppercase << addr << "          ";
     // Set cycles
     CYCLES = op.cycles;
+
+    cout << "A:" << hex << (int)A << " ";
+    cout << "X:" << hex << (int)X << " ";
+    cout << "Y:" << hex << (int)Y << " ";
+    cout << "P:" << (int)STATUS_REGISTER << " ";
+    cout << "SP:" << hex << (int)SP << endl;
+
     // Execute instruction
-    //(this->*op.opcode)(addr);
+    (this->*op.opcode)(addr);
 
     if (PAGE_CROSSED) {
       CYCLES++;
