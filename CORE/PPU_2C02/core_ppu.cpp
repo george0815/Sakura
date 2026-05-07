@@ -2,8 +2,10 @@
 #include "../CPU_6502/core.h"
 
 #include <algorithm>
+#include <cinttypes>
 #include <cstdint>
 #include <pthread.h>
+#include <sys/types.h>
 
 const uint32_t NES_PALETTE[64] = {
     0x666666, 0x002A88, 0x1412A7, 0x3B00A4, 0x5C007E, 0x6E0040, 0x6C0600,
@@ -219,4 +221,144 @@ uint8_t PPU_2C02::cpu_read(uint16_t addr) {}
 
 void PPU_2C02::cpu_write(uint16_t addr, uint8_t data) {}
 
-void PPU_2C02::step() {}
+void PPU_2C02::step() {
+  const bool pre_render_line = (SCANLINE == 261);
+  const bool visible_line = (SCANLINE >= 0 && SCANLINE < FRAME_HEIGHT);
+  const bool render_line = visible_line || pre_render_line;
+  const bool visible_cycle = (CYCLES >= 1 && CYCLES <= FRAME_WIDTH);
+  const bool fetch_cycle = ((CYCLES >= 1 && CYCLES <= FRAME_WIDTH) ||
+                            (CYCLES >= 321 && CYCLES <= 336));
+
+  if (visible_line && visible_cycle) {
+    const int x = CYCLES - 1;
+    const int y = SCANLINE;
+
+    const bool background_hidden =
+        !(MASK & SHOW_BACKGROUND_BIT) ||
+        ((MASK & SHOW_BACKGROUND_LEFT_EDGE_BIT) == 0 && x < 8);
+
+    const BACKGROUND_PIXEL bg =
+        background_hidden ? BACKGROUND_PIXEL{0, 0, palette_read(PALETTE_BASE)}
+                          : GEN_BACKGROUND_PIXEL();
+
+    const SPRITE_PIXEL sprite = GEN_SPRITE_PIXEL(x);
+
+    uint8_t color_idx = bg.color_idx;
+
+    if (sprite.pixel != 0) {
+      const uint8_t sprite_color =
+          palette_read(0x3F10 + (sprite.palette_select << 2) + sprite.pixel);
+
+      if (bg.pixel == 0 || !sprite.priority_behind_background) {
+        color_idx = sprite_color;
+      }
+
+      if (sprite.is_sprite_zero && bg.pixel != 0 && sprite.pixel != 0) {
+        STATUS |= SPRITE_ZERO_HIT_BIT;
+      }
+    }
+    FRAMEBUFFER[y * FRAME_WIDTH * x] =
+        0xFF000000 | NES_PALETTE[color_idx & 0x3F];
+  }
+
+  if (render_line && fetch_cycle) {
+    UPDATE_BACKGROUND_SHIFTERS();
+
+    switch ((CYCLES - 1) & 0x07) {
+    case 0: {
+      LOAD_BACKGROUND_SHIFTERS();
+      NEXT_TILE_ID = ppu_read(NAMETABLE_BASE | (VRAM_ADDR & 0x0FFF));
+      break;
+    }
+
+    case 2: {
+      const uint16_t attr_addr =
+          NAMETABLE_BASE | ATTRIBUTE_TABLE_OFFSET | (VRAM_ADDR & 0x0C00) |
+          ((VRAM_ADDR >> 4) & 0x38) | ((VRAM_ADDR >> 2) & 0x07);
+
+      uint8_t attr = ppu_read(attr_addr);
+      if (VRAM_ADDR & 0x0002) {
+        attr >>= 2;
+      }
+      if (VRAM_ADDR & 0x0040) {
+        attr >>= 4;
+      }
+      NEXT_TILE_ATTR = attr & 0x03;
+      break;
+    }
+    case 4: {
+      const uint16_t fine_y = (VRAM_ADDR >> 12) & 0x07;
+      const uint16_t pattern_base =
+          (CTRL & BACKGROUND_TABLE_BIT) ? 0x1000 : 0x0000;
+      const uint16_t tile_addr =
+          pattern_base + NEXT_TILE_ID * PATTERN_TABLE_STRIDE + fine_y;
+      NEXT_TILE_LSB = ppu_read(tile_addr);
+      break;
+    }
+    case 6: {
+      const uint16_t fine_y = (VRAM_ADDR >> 12) & 0x07;
+      const uint16_t pattern_base =
+          (CTRL & BACKGROUND_TABLE_BIT) ? 0x1000 : 0x0000;
+      const uint16_t tile_addr =
+          pattern_base + NEXT_TILE_ID * PATTERN_TABLE_STRIDE + fine_y;
+      NEXT_TILE_MSB = ppu_read(tile_addr + PATTERN_PLANE_OFFSET);
+      break;
+    }
+    case 7: {
+      INCREMENT_SCROLL_X();
+      break;
+    }
+    default:
+      break;
+    }
+  }
+
+  if (render_line) {
+    if (CYCLES == 256) {
+      INCREMENT_SCROLL_Y();
+    } else if (CYCLES == 257) {
+      LOAD_BACKGROUND_SHIFTERS();
+      TRANSFER_ADDRESS_X();
+      if (visible_line) {
+        EVALUATE_SPRITES_FOR_SCANLINE(SCANLINE + 1);
+      } else if (pre_render_line) {
+        EVALUATE_SPRITES_FOR_SCANLINE(0);
+      }
+    } else if (pre_render_line && CYCLES >= 280 && CYCLES <= 304) {
+      TRANSFER_ADDRESS_Y();
+    }
+
+    if (visible_line && CYCLES == 260 && MAPPER &&
+        (MASK & (SHOW_BACKGROUND_BIT | SHOW_SPRITES_BIT))) {
+      MAPPER->on_ppu_scanline(CPU);
+    }
+  }
+
+  if (pre_render_line && CYCLES == 1) {
+    STATUS &= (~(VBLANK_BIT | SPRITE_OVERFLOW_BIT | SPRITE_ZERO_HIT_BIT));
+    FRAME_DONE = false;
+  }
+
+  CYCLES++;
+
+  if (CYCLES >= PPU_CYCLES_PER_LINE) {
+    CYCLES = 0;
+    SCANLINE++;
+  }
+
+  if (SCANLINE == 241 && CYCLES == 1) {
+    STATUS |= VBLANK_BIT;
+    FRAME_DONE = true;
+    if (CPU && (CTRL & NMI_ENABLE_BIT)) {
+      CPU->NMI_HANDLER();
+    }
+  }
+
+  if (SCANLINE == 261 && CYCLES == 1) {
+    STATUS &= ~VBLANK_BIT;
+  }
+
+  if (SCANLINE >= PPU_SCANLINES) {
+    SCANLINE = 0;
+  }
+}

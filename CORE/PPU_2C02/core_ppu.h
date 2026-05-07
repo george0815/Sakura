@@ -67,6 +67,8 @@ private:
   const uint16_t ATTRIBUTE_TABLE_OFFSET = 0x03C0;
   const uint16_t PATTERN_TABLE_STRIDE = 16;
   const uint16_t PATTERN_PLANE_OFFSET = 8;
+  const int PPU_SCANLINES = 262;
+  const int PPU_CYCLES_PER_LINE = 341;
 
   Mapper *MAPPER;
   class CPU_6502 *CPU;
