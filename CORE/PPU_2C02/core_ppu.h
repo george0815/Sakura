@@ -62,14 +62,15 @@ private:
   const uint16_t COARSE_X_MASK = 0x001F;
   const uint16_t COARSE_Y_MASK = 0x03E0;
   const uint16_t NAMETABLE_BITS_MASK = 0x0C00;
-  const uint16_t FINE_MASK = 0x7000;
+  const uint16_t FINE_Y_MASK = 0x7000;
   const uint16_t UNUSED_VRAM_MASK = 0x7FFF;
   const uint16_t ATTRIBUTE_TABLE_OFFSET = 0x03C0;
   const uint16_t PATTERN_TABLE_STRIDE = 16;
   const uint16_t PATTERN_PLANE_OFFSET = 8;
 
-  Mapper *mapper;
+  Mapper *MAPPER;
   class CPU_6502 *CPU;
+  MIRRORING MIRROR_MODE;
 
   uint8_t CTRL = 0;
   uint8_t MASK = 0;
