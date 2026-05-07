@@ -17,16 +17,24 @@ class BUS {
 
 public:
   // CPU has access to 2KB of internal RAM, its fixed so I'll be using an array
-  std::array<uint8_t, 0x0800> CPU_RAM;
+  array<uint8_t, 0x0800> CPU_RAM;
 
   // Program ROM can either be 16KB or 32KB, so I'll be using a vector
-  std::vector<uint8_t> PRG_ROM;
+  vector<uint8_t> PRG_ROM;
+
+  vector<uint8_t> CHR_MEM;
+
+  vector<uint8_t> PRG_RAM;
+
+  array<uint8_t, 0x8000> SHADOW{};
 
   // INIT/FUNCTIONING
   void insert_cartridge(CART &cart);
   void connect_cpu(CPU_6502 &cpu);
   void connect_ppu(PPU_2C02 &ppu);
   void step();
+  ~BUS();
+
   // READ/WRITE
   uint8_t read(uint16_t addr);
   void write(uint16_t addr, uint8_t data);

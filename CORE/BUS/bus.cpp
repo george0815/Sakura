@@ -26,6 +26,8 @@ using namespace std;
  *
  * */
 
+BUS::~BUS() { delete MAPPER; }
+
 uint8_t BUS::read(uint16_t addr) {
 
   // If address is within the 8KB addressable range for the CPU RAM
@@ -80,6 +82,41 @@ void BUS::connect_cpu(CPU_6502 &cpu) {
   cout << "BUS <- CPU\n" << endl;
 }
 
-void BUS::insert_cartridge(CART &cart) { PRG_ROM = cart.PRG; }
+void BUS::connect_ppu(PPU_2C02 &ppu) {
+  PPU = &ppu;
+
+  if (PPU && MAPPER) {
+    PPU->connect_mapper(MAPPER, MIRROR_MODE);
+  }
+  if (PPU && CPU) {
+    PPU->connect_cpu(CPU);
+  }
+}
+
+void BUS::insert_cartridge(CART &cart) {
+  PRG_ROM = cart.PRG;
+  CHR_MEM = cart.CHR;
+  PRG_RAM.assign(cart.PRG_RAM_SIZE, 0);
+  HAS_PRG = !PRG_ROM.empty();
+  CHR_IS_RAM = cart.USES_CHR_RAM;
+  BATTERY_BACKED = cart.USES_BATTERY_BACKED_SRAM;
+  MAPPER_ID = cart.MAPPER_ID;
+  MIRROR_MODE = cart.MIRROR_MODE;
+  // TODO add cart sign
+  if (MAPPER) {
+    delete MAPPER;
+  }
+  switch (MAPPER_ID) {
+  case 0:
+    MAPPER = new Mapper0(PRG_ROM, CHR_MEM, CHR_IS_RAM, MIRROR_MODE);
+    break;
+  default:
+    MAPPER = new Mapper0(PRG_ROM, CHR_MEM, CHR_IS_RAM, MIRROR_MODE);
+    break;
+  }
+  if (PPU) {
+    PPU->connect_mapper(MAPPER, MIRROR_MODE);
+  }
+}
 
 void BUS::step() { CPU->step(); }
