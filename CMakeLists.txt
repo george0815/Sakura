@@ -5,7 +5,7 @@ project(sakura)
 
 set (CMAKE_CXX_STANDARD 17)
 
-
+find_package(SDL2 REQUIRED)
 
 
 #collect all surce file
@@ -16,6 +16,8 @@ file(GLOB_RECURSE SRC CONFIGURE_DEPENDS
 
 
 add_executable(sakura ${SRC})
+
+target_link_libraries(sakura SDL2::SDL2)
 
 
 #include directories

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/Hunter/Documents/Github/sakura/CORE
+CXX_INCLUDES = -I/home/Hunter/Documents/Github/sakura/CORE -isystem /usr/include/SDL2
 
 CXX_FLAGS = -std=gnu++17
 

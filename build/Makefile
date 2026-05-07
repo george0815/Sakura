@@ -370,29 +370,29 @@ MAIN/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/MAIN/main.cpp.s
 .PHONY : MAIN/main.cpp.s
 
-MAIN/sakura.o: MAIN/sakura.cpp.o
-.PHONY : MAIN/sakura.o
+MAIN/render.o: MAIN/render.cpp.o
+.PHONY : MAIN/render.o
 
 # target to build an object file
-MAIN/sakura.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/MAIN/sakura.cpp.o
-.PHONY : MAIN/sakura.cpp.o
+MAIN/render.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/MAIN/render.cpp.o
+.PHONY : MAIN/render.cpp.o
 
-MAIN/sakura.i: MAIN/sakura.cpp.i
-.PHONY : MAIN/sakura.i
+MAIN/render.i: MAIN/render.cpp.i
+.PHONY : MAIN/render.i
 
 # target to preprocess a source file
-MAIN/sakura.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/MAIN/sakura.cpp.i
-.PHONY : MAIN/sakura.cpp.i
+MAIN/render.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/MAIN/render.cpp.i
+.PHONY : MAIN/render.cpp.i
 
-MAIN/sakura.s: MAIN/sakura.cpp.s
-.PHONY : MAIN/sakura.s
+MAIN/render.s: MAIN/render.cpp.s
+.PHONY : MAIN/render.s
 
 # target to generate assembly for a file
-MAIN/sakura.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/MAIN/sakura.cpp.s
-.PHONY : MAIN/sakura.cpp.s
+MAIN/render.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/MAIN/render.cpp.s
+.PHONY : MAIN/render.cpp.s
 
 # Help Target
 help:
@@ -433,9 +433,9 @@ help:
 	@echo "... MAIN/main.o"
 	@echo "... MAIN/main.i"
 	@echo "... MAIN/main.s"
-	@echo "... MAIN/sakura.o"
-	@echo "... MAIN/sakura.i"
-	@echo "... MAIN/sakura.s"
+	@echo "... MAIN/render.o"
+	@echo "... MAIN/render.i"
+	@echo "... MAIN/render.s"
 .PHONY : help
 
 

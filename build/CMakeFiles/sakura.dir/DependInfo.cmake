@@ -18,7 +18,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/core_ppu.cpp" "CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o.d"
   "/home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/utils_ppu.cpp" "CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o.d"
   "/home/Hunter/Documents/Github/sakura/MAIN/main.cpp" "CMakeFiles/sakura.dir/MAIN/main.cpp.o" "gcc" "CMakeFiles/sakura.dir/MAIN/main.cpp.o.d"
-  "/home/Hunter/Documents/Github/sakura/MAIN/sakura.cpp" "CMakeFiles/sakura.dir/MAIN/sakura.cpp.o" "gcc" "CMakeFiles/sakura.dir/MAIN/sakura.cpp.o.d"
+  "/home/Hunter/Documents/Github/sakura/MAIN/render.cpp" "CMakeFiles/sakura.dir/MAIN/render.cpp.o" "gcc" "CMakeFiles/sakura.dir/MAIN/render.cpp.o.d"
   "" "sakura" "gcc" "CMakeFiles/sakura.dir/link.d"
   )
 
