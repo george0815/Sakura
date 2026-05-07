@@ -155,6 +155,7 @@ void BUS::connect_ppu(PPU_2C02 &ppu) {
   if (PPU && CPU) {
     PPU->connect_cpu(CPU);
   }
+  cout << "BUS <- PPU\n" << endl;
 }
 
 void BUS::insert_cartridge(CART &cart) {

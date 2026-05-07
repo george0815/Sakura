@@ -13,8 +13,9 @@ int main(int arc, char *argv[]) {
 
   bus.insert_cartridge(cart);
   bus.connect_cpu(cpu);
+  bus.connect_ppu(ppu);
   cpu.connect_bus(&bus);
-  // cpu.RESET_HANDLER();
+  cpu.RESET_HANDLER();
 
   cout << "\nDONE" << endl;
 

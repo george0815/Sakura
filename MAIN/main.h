@@ -6,3 +6,4 @@
 
 BUS bus;
 CPU_6502 cpu;
+PPU_2C02 ppu;

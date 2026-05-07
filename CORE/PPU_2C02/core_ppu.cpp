@@ -271,7 +271,7 @@ void PPU_2C02::EVALUATE_SPRITES_FOR_SCANLINE(int target_scanline) {
       entry.pattern_lo =
           FETCH_SPRITE_PATTERN_BYTE(entry.tile, entry.attr, row, false);
       entry.pattern_hi =
-          FETCH_SPRITE_PATTERN_BYTE(entry.tile, entry.attr, row, false);
+          FETCH_SPRITE_PATTERN_BYTE(entry.tile, entry.attr, row, true);
 
     } else {
       overflow = true;
@@ -433,7 +433,7 @@ void PPU_2C02::step() {
         STATUS |= SPRITE_ZERO_HIT_BIT;
       }
     }
-    FRAMEBUFFER[y * FRAME_WIDTH * x] =
+    FRAMEBUFFER[y * FRAME_WIDTH + x] =
         0xFF000000 | NES_PALETTE[color_idx & 0x3F];
   }
 
