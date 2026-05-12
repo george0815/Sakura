@@ -72,10 +72,164 @@ include CMakeFiles/sakura.dir/flags.make
 CMakeFiles/sakura.dir/codegen:
 .PHONY : CMakeFiles/sakura.dir/codegen
 
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o: CMakeFiles/sakura.dir/flags.make
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o -MF CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o.d -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp > CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.i
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.s
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o: CMakeFiles/sakura.dir/flags.make
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o -MF CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o.d -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp > CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.i
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.s
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o: CMakeFiles/sakura.dir/flags.make
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o -MF CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o.d -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp > CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.i
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.s
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o: CMakeFiles/sakura.dir/flags.make
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o -MF CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o.d -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp > CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.i
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.s
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o: CMakeFiles/sakura.dir/flags.make
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o -MF CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o.d -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp > CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.i
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.s
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o: CMakeFiles/sakura.dir/flags.make
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o -MF CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o.d -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp > CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.i
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.s
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o: CMakeFiles/sakura.dir/flags.make
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o -MF CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o.d -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp > CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.i
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.s
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o: CMakeFiles/sakura.dir/flags.make
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o -MF CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o.d -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp > CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.i
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.s
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o: CMakeFiles/sakura.dir/flags.make
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o -MF CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o.d -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp > CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.i
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.s
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o: CMakeFiles/sakura.dir/flags.make
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o -MF CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o.d -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp > CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.i
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.s
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o: CMakeFiles/sakura.dir/flags.make
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o -MF CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o.d -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp > CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.i
+
+CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp -o CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.s
+
 CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.o: CMakeFiles/sakura.dir/flags.make
 CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/wrapper.cpp
 CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.o -MF CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.o.d -o CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/APU_2A03/wrapper.cpp
 
 CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.i: cmake_force
@@ -89,7 +243,7 @@ CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.s: cmake_force
 CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.o: CMakeFiles/sakura.dir/flags.make
 CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/BUS/bus.cpp
 CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.o -MF CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.o.d -o CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/BUS/bus.cpp
 
 CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.i: cmake_force
@@ -103,7 +257,7 @@ CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.s: cmake_force
 CMakeFiles/sakura.dir/CORE/CART/cart.cpp.o: CMakeFiles/sakura.dir/flags.make
 CMakeFiles/sakura.dir/CORE/CART/cart.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/CART/cart.cpp
 CMakeFiles/sakura.dir/CORE/CART/cart.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sakura.dir/CORE/CART/cart.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/sakura.dir/CORE/CART/cart.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/CART/cart.cpp.o -MF CMakeFiles/sakura.dir/CORE/CART/cart.cpp.o.d -o CMakeFiles/sakura.dir/CORE/CART/cart.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/CART/cart.cpp
 
 CMakeFiles/sakura.dir/CORE/CART/cart.cpp.i: cmake_force
@@ -117,7 +271,7 @@ CMakeFiles/sakura.dir/CORE/CART/cart.cpp.s: cmake_force
 CMakeFiles/sakura.dir/CORE/CPU_6502/addressing_modes.cpp.o: CMakeFiles/sakura.dir/flags.make
 CMakeFiles/sakura.dir/CORE/CPU_6502/addressing_modes.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/CPU_6502/addressing_modes.cpp
 CMakeFiles/sakura.dir/CORE/CPU_6502/addressing_modes.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sakura.dir/CORE/CPU_6502/addressing_modes.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/sakura.dir/CORE/CPU_6502/addressing_modes.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/CPU_6502/addressing_modes.cpp.o -MF CMakeFiles/sakura.dir/CORE/CPU_6502/addressing_modes.cpp.o.d -o CMakeFiles/sakura.dir/CORE/CPU_6502/addressing_modes.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/CPU_6502/addressing_modes.cpp
 
 CMakeFiles/sakura.dir/CORE/CPU_6502/addressing_modes.cpp.i: cmake_force
@@ -131,7 +285,7 @@ CMakeFiles/sakura.dir/CORE/CPU_6502/addressing_modes.cpp.s: cmake_force
 CMakeFiles/sakura.dir/CORE/CPU_6502/core.cpp.o: CMakeFiles/sakura.dir/flags.make
 CMakeFiles/sakura.dir/CORE/CPU_6502/core.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/CPU_6502/core.cpp
 CMakeFiles/sakura.dir/CORE/CPU_6502/core.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sakura.dir/CORE/CPU_6502/core.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/sakura.dir/CORE/CPU_6502/core.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/CPU_6502/core.cpp.o -MF CMakeFiles/sakura.dir/CORE/CPU_6502/core.cpp.o.d -o CMakeFiles/sakura.dir/CORE/CPU_6502/core.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/CPU_6502/core.cpp
 
 CMakeFiles/sakura.dir/CORE/CPU_6502/core.cpp.i: cmake_force
@@ -145,7 +299,7 @@ CMakeFiles/sakura.dir/CORE/CPU_6502/core.cpp.s: cmake_force
 CMakeFiles/sakura.dir/CORE/CPU_6502/opcodes.cpp.o: CMakeFiles/sakura.dir/flags.make
 CMakeFiles/sakura.dir/CORE/CPU_6502/opcodes.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/CPU_6502/opcodes.cpp
 CMakeFiles/sakura.dir/CORE/CPU_6502/opcodes.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sakura.dir/CORE/CPU_6502/opcodes.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/sakura.dir/CORE/CPU_6502/opcodes.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/CPU_6502/opcodes.cpp.o -MF CMakeFiles/sakura.dir/CORE/CPU_6502/opcodes.cpp.o.d -o CMakeFiles/sakura.dir/CORE/CPU_6502/opcodes.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/CPU_6502/opcodes.cpp
 
 CMakeFiles/sakura.dir/CORE/CPU_6502/opcodes.cpp.i: cmake_force
@@ -159,7 +313,7 @@ CMakeFiles/sakura.dir/CORE/CPU_6502/opcodes.cpp.s: cmake_force
 CMakeFiles/sakura.dir/CORE/LOGGER/logger.cpp.o: CMakeFiles/sakura.dir/flags.make
 CMakeFiles/sakura.dir/CORE/LOGGER/logger.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/LOGGER/logger.cpp
 CMakeFiles/sakura.dir/CORE/LOGGER/logger.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sakura.dir/CORE/LOGGER/logger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/sakura.dir/CORE/LOGGER/logger.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/LOGGER/logger.cpp.o -MF CMakeFiles/sakura.dir/CORE/LOGGER/logger.cpp.o.d -o CMakeFiles/sakura.dir/CORE/LOGGER/logger.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/LOGGER/logger.cpp
 
 CMakeFiles/sakura.dir/CORE/LOGGER/logger.cpp.i: cmake_force
@@ -173,7 +327,7 @@ CMakeFiles/sakura.dir/CORE/LOGGER/logger.cpp.s: cmake_force
 CMakeFiles/sakura.dir/CORE/MAPPERS/mapper0.cpp.o: CMakeFiles/sakura.dir/flags.make
 CMakeFiles/sakura.dir/CORE/MAPPERS/mapper0.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/MAPPERS/mapper0.cpp
 CMakeFiles/sakura.dir/CORE/MAPPERS/mapper0.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/sakura.dir/CORE/MAPPERS/mapper0.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/sakura.dir/CORE/MAPPERS/mapper0.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/MAPPERS/mapper0.cpp.o -MF CMakeFiles/sakura.dir/CORE/MAPPERS/mapper0.cpp.o.d -o CMakeFiles/sakura.dir/CORE/MAPPERS/mapper0.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/MAPPERS/mapper0.cpp
 
 CMakeFiles/sakura.dir/CORE/MAPPERS/mapper0.cpp.i: cmake_force
@@ -187,7 +341,7 @@ CMakeFiles/sakura.dir/CORE/MAPPERS/mapper0.cpp.s: cmake_force
 CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o: CMakeFiles/sakura.dir/flags.make
 CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/core_ppu.cpp
 CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o -MF CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o.d -o CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/core_ppu.cpp
 
 CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.i: cmake_force
@@ -201,7 +355,7 @@ CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.s: cmake_force
 CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o: CMakeFiles/sakura.dir/flags.make
 CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o: /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/utils_ppu.cpp
 CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o -MF CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o.d -o CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.o -c /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/utils_ppu.cpp
 
 CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.i: cmake_force
@@ -215,7 +369,7 @@ CMakeFiles/sakura.dir/CORE/PPU_2C02/utils_ppu.cpp.s: cmake_force
 CMakeFiles/sakura.dir/MAIN/main.cpp.o: CMakeFiles/sakura.dir/flags.make
 CMakeFiles/sakura.dir/MAIN/main.cpp.o: /home/Hunter/Documents/Github/sakura/MAIN/main.cpp
 CMakeFiles/sakura.dir/MAIN/main.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/sakura.dir/MAIN/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/sakura.dir/MAIN/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/MAIN/main.cpp.o -MF CMakeFiles/sakura.dir/MAIN/main.cpp.o.d -o CMakeFiles/sakura.dir/MAIN/main.cpp.o -c /home/Hunter/Documents/Github/sakura/MAIN/main.cpp
 
 CMakeFiles/sakura.dir/MAIN/main.cpp.i: cmake_force
@@ -229,7 +383,7 @@ CMakeFiles/sakura.dir/MAIN/main.cpp.s: cmake_force
 CMakeFiles/sakura.dir/MAIN/render.cpp.o: CMakeFiles/sakura.dir/flags.make
 CMakeFiles/sakura.dir/MAIN/render.cpp.o: /home/Hunter/Documents/Github/sakura/MAIN/render.cpp
 CMakeFiles/sakura.dir/MAIN/render.cpp.o: CMakeFiles/sakura.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/sakura.dir/MAIN/render.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/sakura.dir/MAIN/render.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sakura.dir/MAIN/render.cpp.o -MF CMakeFiles/sakura.dir/MAIN/render.cpp.o.d -o CMakeFiles/sakura.dir/MAIN/render.cpp.o -c /home/Hunter/Documents/Github/sakura/MAIN/render.cpp
 
 CMakeFiles/sakura.dir/MAIN/render.cpp.i: cmake_force
@@ -242,6 +396,17 @@ CMakeFiles/sakura.dir/MAIN/render.cpp.s: cmake_force
 
 # Object files for target sakura
 sakura_OBJECTS = \
+"CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o" \
+"CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o" \
+"CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o" \
+"CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o" \
+"CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o" \
+"CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o" \
+"CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o" \
+"CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o" \
+"CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o" \
+"CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o" \
+"CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o" \
 "CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.o" \
 "CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.o" \
 "CMakeFiles/sakura.dir/CORE/CART/cart.cpp.o" \
@@ -258,6 +423,17 @@ sakura_OBJECTS = \
 # External object files for target sakura
 sakura_EXTERNAL_OBJECTS =
 
+sakura: CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o
+sakura: CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o
+sakura: CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o
+sakura: CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o
+sakura: CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o
+sakura: CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o
+sakura: CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o
+sakura: CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o
+sakura: CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o
+sakura: CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o
+sakura: CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o
 sakura: CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.o
 sakura: CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.o
 sakura: CMakeFiles/sakura.dir/CORE/CART/cart.cpp.o
@@ -274,7 +450,7 @@ sakura: CMakeFiles/sakura.dir/build.make
 sakura: CMakeFiles/sakura.dir/compiler_depend.ts
 sakura: /usr/lib/libSDL2-2.0.so.0.3200.66
 sakura: CMakeFiles/sakura.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable sakura"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/Hunter/Documents/Github/sakura/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Linking CXX executable sakura"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sakura.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

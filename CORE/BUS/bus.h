@@ -53,7 +53,6 @@ public:
   void insert_cartridge(CART &cart);
   void connect_cpu(CPU_6502 &cpu);
   void connect_ppu(PPU_2C02 &ppu);
-  void step();
   ~BUS();
 
   // READ/WRITE

@@ -168,6 +168,7 @@ void CPU_6502::step() {
   }
 
   CYCLES--;
+  TOTAL_CYCLES++;
 
   if (B && B->PPU) {
     for (int i = 0; i < 3; ++i) {

@@ -4,6 +4,17 @@
 # SRC at CMakeLists.txt:12 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/Hunter/Documents/Github/sakura/CORE/*.cpp")
 set(OLD_GLOB
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp"
   "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/wrapper.cpp"
   "/home/Hunter/Documents/Github/sakura/CORE/BUS/bus.cpp"
   "/home/Hunter/Documents/Github/sakura/CORE/CART/cart.cpp"

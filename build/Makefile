@@ -130,6 +130,270 @@ sakura/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/build
 .PHONY : sakura/fast
 
+CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.o: CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.o
+
+# target to build an object file
+CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o
+
+CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.i: CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.i
+
+# target to preprocess a source file
+CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.i
+
+CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.s: CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.s
+
+# target to generate assembly for a file
+CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.s
+
+CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.o: CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.o
+
+# target to build an object file
+CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o
+
+CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.i: CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.i
+
+# target to preprocess a source file
+CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.i
+
+CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.s: CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.s
+
+# target to generate assembly for a file
+CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.s
+
+CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.o: CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.o
+
+# target to build an object file
+CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o
+
+CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.i: CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.i
+
+# target to preprocess a source file
+CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.i
+
+CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.s: CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.s
+
+# target to generate assembly for a file
+CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.s
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.o: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.o
+
+# target to build an object file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.i: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.i
+
+# target to preprocess a source file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.i
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.s: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.s
+
+# target to generate assembly for a file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.s
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.o: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.o
+
+# target to build an object file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.i: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.i
+
+# target to preprocess a source file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.i
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.s: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.s
+
+# target to generate assembly for a file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.s
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.o: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.o
+
+# target to build an object file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.i: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.i
+
+# target to preprocess a source file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.i
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.s: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.s
+
+# target to generate assembly for a file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.s
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.o: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.o
+
+# target to build an object file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.i: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.i
+
+# target to preprocess a source file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.i
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.s: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.s
+
+# target to generate assembly for a file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.s
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.o: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.o
+
+# target to build an object file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.i: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.i
+
+# target to preprocess a source file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.i
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.s: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.s
+
+# target to generate assembly for a file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.s
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.o: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.o
+
+# target to build an object file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.i: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.i
+
+# target to preprocess a source file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.i
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.s: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.s
+
+# target to generate assembly for a file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.s
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.o: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.o
+
+# target to build an object file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.i: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.i
+
+# target to preprocess a source file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.i
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.s: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.s
+
+# target to generate assembly for a file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.s
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.o: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.o
+
+# target to build an object file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.i: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.i
+
+# target to preprocess a source file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.i
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.i
+
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.s: CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.s
+
+# target to generate assembly for a file
+CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sakura.dir/build.make CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.s
+.PHONY : CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.s
+
 CORE/APU_2A03/wrapper.o: CORE/APU_2A03/wrapper.cpp.o
 .PHONY : CORE/APU_2A03/wrapper.o
 
@@ -427,6 +691,39 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... sakura"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.o"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.i"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.s"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.o"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.i"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.s"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.o"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.i"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.s"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.o"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.i"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.s"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.o"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.i"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.s"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.o"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.i"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.s"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.o"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.i"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.s"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.o"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.i"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.s"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.o"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.i"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.s"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.o"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.i"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.s"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.o"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.i"
+	@echo "... CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.s"
 	@echo "... CORE/APU_2A03/wrapper.o"
 	@echo "... CORE/APU_2A03/wrapper.i"
 	@echo "... CORE/APU_2A03/wrapper.s"

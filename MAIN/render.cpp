@@ -1,4 +1,5 @@
 #include "./render.h"
+#include <SDL2/SDL.h>
 #include <cstddef>
 #include <cstdint>
 #include <iostream>
@@ -11,7 +12,7 @@ SDL_Texture *texture = nullptr;
 
 bool init_sdl() {
 
-  if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0) {
     cout << SDL_GetError() << endl;
     return false;
   }

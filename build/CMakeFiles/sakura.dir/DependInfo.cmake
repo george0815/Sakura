@@ -8,6 +8,17 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Simple_Apu.cpp.o.d"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Sound_Queue.cpp.o.d"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/Wave_Writer.cpp.o.d"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.cpp.o.d"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Multi_Buffer.cpp.o.d"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.cpp.o.d"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Namco.cpp.o.d"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.cpp.o.d"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Vrc6.cpp.o.d"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/Nonlinear_Buffer.cpp.o.d"
+  "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/APU_2A03/Nes_Snd_Emu/nes_apu/apu_snapshot.cpp.o.d"
   "/home/Hunter/Documents/Github/sakura/CORE/APU_2A03/wrapper.cpp" "CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/APU_2A03/wrapper.cpp.o.d"
   "/home/Hunter/Documents/Github/sakura/CORE/BUS/bus.cpp" "CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/BUS/bus.cpp.o.d"
   "/home/Hunter/Documents/Github/sakura/CORE/CART/cart.cpp" "CMakeFiles/sakura.dir/CORE/CART/cart.cpp.o" "gcc" "CMakeFiles/sakura.dir/CORE/CART/cart.cpp.o.d"

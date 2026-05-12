@@ -101,6 +101,9 @@ public:
   // Stores cycles for current instruction being executed
   int CYCLES = 0;
 
+  // Total cycles used for timing by the entire system
+  int TOTAL_CYCLES;
+
   // status enum
   enum STATUS {
 

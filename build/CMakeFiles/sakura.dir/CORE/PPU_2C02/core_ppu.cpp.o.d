@@ -81,18 +81,55 @@ CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o: \
  /usr/include/bits/struct_rwlock.h \
  /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/../CPU_6502/core.h \
  /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/../CPU_6502/../BUS/bus.h \
+ /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/../CPU_6502/../BUS/../APU_2A03/wrapper.h \
+ /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/../CPU_6502/../BUS/../APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.h \
+ /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/../CPU_6502/../BUS/../APU_2A03/Nes_Snd_Emu/nes_apu/blargg_common.h \
+ /usr/include/boost/config.hpp /usr/include/boost/config/user.hpp \
+ /usr/include/boost/config/detail/select_compiler_config.hpp \
+ /usr/include/boost/config/compiler/gcc.hpp \
+ /usr/include/boost/config/detail/select_stdlib_config.hpp \
+ /usr/include/c++/15.2.1/version \
+ /usr/include/boost/config/stdlib/libstdcpp3.hpp /usr/include/unistd.h \
+ /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
+ /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
+ /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
+ /usr/include/linux/close_range.h \
+ /usr/include/boost/config/detail/select_platform_config.hpp \
+ /usr/include/boost/config/platform/linux.hpp \
+ /usr/include/c++/15.2.1/cstdlib /usr/include/stdlib.h \
+ /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
+ /usr/include/bits/floatn.h /usr/include/bits/floatn-common.h \
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/alloca.h /usr/include/bits/stdlib-float.h \
+ /usr/include/c++/15.2.1/bits/std_abs.h \
+ /usr/include/boost/config/detail/posix_features.hpp \
+ /usr/include/boost/config/detail/suffix.hpp \
+ /usr/include/boost/config/helper_macros.hpp \
+ /usr/include/boost/config/detail/cxx_composite.hpp \
+ /usr/include/boost/cstdint.hpp /usr/include/boost/static_assert.hpp \
+ /usr/include/boost/detail/workaround.hpp \
+ /usr/include/boost/config/workaround.hpp /usr/include/c++/15.2.1/cassert \
+ /usr/include/assert.h \
+ /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/../CPU_6502/../BUS/../APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Synth.h \
+ /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/../CPU_6502/../BUS/../APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Apu.h \
+ /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/../CPU_6502/../BUS/../APU_2A03/Nes_Snd_Emu/nes_apu/Nes_Oscs.h \
+ /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/../CPU_6502/../BUS/../APU_2A03/Nes_Snd_Emu/nes_apu/Blip_Buffer.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/pthread_stack_min-dynamic.h \
+ /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
+ /usr/include/bits/uio_lim.h \
  /home/Hunter/Documents/Github/sakura/CORE/PPU_2C02/../CPU_6502/../BUS/../CART/cart.h \
  /usr/include/c++/15.2.1/string /usr/include/c++/15.2.1/bits/stringfwd.h \
  /usr/include/c++/15.2.1/bits/char_traits.h \
  /usr/include/c++/15.2.1/bits/postypes.h /usr/include/c++/15.2.1/cwchar \
- /usr/include/wchar.h /usr/include/bits/floatn.h \
- /usr/include/bits/floatn-common.h \
+ /usr/include/wchar.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
  /usr/include/bits/types/wint_t.h /usr/include/bits/types/mbstate_t.h \
  /usr/include/bits/types/__mbstate_t.h /usr/include/bits/types/__FILE.h \
- /usr/include/bits/types/FILE.h /usr/include/bits/types/locale_t.h \
- /usr/include/bits/types/__locale_t.h \
- /usr/include/c++/15.2.1/bits/localefwd.h \
+ /usr/include/bits/types/FILE.h /usr/include/c++/15.2.1/bits/localefwd.h \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++locale.h \
  /usr/include/c++/15.2.1/clocale /usr/include/locale.h \
  /usr/include/bits/locale.h /usr/include/c++/15.2.1/iosfwd \
@@ -103,12 +140,8 @@ CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o: \
  /usr/include/c++/15.2.1/string_view \
  /usr/include/c++/15.2.1/bits/string_view.tcc \
  /usr/include/c++/15.2.1/ext/string_conversions.h \
- /usr/include/c++/15.2.1/cstdlib /usr/include/stdlib.h \
- /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
- /usr/include/alloca.h /usr/include/bits/stdlib-float.h \
- /usr/include/c++/15.2.1/bits/std_abs.h /usr/include/c++/15.2.1/cstdio \
- /usr/include/stdio.h /usr/include/bits/types/__fpos_t.h \
- /usr/include/bits/types/__fpos64_t.h \
+ /usr/include/c++/15.2.1/cstdio /usr/include/stdio.h \
+ /usr/include/bits/types/__fpos_t.h /usr/include/bits/types/__fpos64_t.h \
  /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/types/cookie_io_functions_t.h \
  /usr/include/bits/stdio_lim.h /usr/include/c++/15.2.1/cerrno \
@@ -141,7 +174,6 @@ CMakeFiles/sakura.dir/CORE/PPU_2C02/core_ppu.cpp.o: \
  /usr/include/bits/types/struct_tm.h \
  /usr/include/bits/types/struct_itimerspec.h /usr/include/bits/setjmp.h \
  /usr/include/bits/types/struct___jmp_buf_tag.h \
- /usr/include/bits/pthread_stack_min-dynamic.h \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h \
  /usr/include/sys/single_threaded.h \
  /usr/include/c++/15.2.1/bits/locale_classes.h \

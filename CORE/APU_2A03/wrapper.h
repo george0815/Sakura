@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Nes_Snd_Emu/nes_apu/Blip_Buffer.h"
 #include "Nes_Snd_Emu/nes_apu/Nes_Apu.h"
 #include <cstdint>

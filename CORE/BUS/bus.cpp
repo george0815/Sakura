@@ -31,7 +31,7 @@ BUS::~BUS() { delete MAPPER; }
 uint8_t BUS::read(uint16_t addr) {
 
   if (addr == 0x4015) {
-    const uint64_t cpu_cycle = CPU ? CPU->CYCLES : 0;
+    const uint64_t cpu_cycle = CPU ? CPU->TOTAL_CYCLES : 0;
     return APU.read_status(cpu_cycle);
   }
 
@@ -115,7 +115,7 @@ void BUS::write(uint16_t addr, uint8_t data) {
 
   if ((addr >= 0x4000 && addr <= 0x4013) || addr == 0x4015 || addr == 0x4017) {
     SHADOW[addr] = data;
-    const uint64_t cpu_cycle = CPU ? CPU->CYCLES : 0;
+    const uint64_t cpu_cycle = CPU ? CPU->TOTAL_CYCLES : 0;
     APU.write_register(cpu_cycle, addr, data);
     return;
   }
@@ -217,5 +217,3 @@ void BUS::insert_cartridge(CART &cart) {
     PPU->connect_mapper(MAPPER, MIRROR_MODE);
   }
 }
-
-void BUS::step() { CPU->step(); }
