@@ -1,8 +1,10 @@
 #include "main.h"
+#include "../CORE/BUS/bus.h"
 #include "../CORE/CART/cart.h"
 #include "../CORE/LOGGER/logger.h"
 #include "./render.h"
 #include <SDL2/SDL_events.h>
+#include <SDL2/SDL_keycode.h>
 #include <SDL2/SDL_timer.h>
 #include <cstdint>
 #include <iostream>
@@ -45,6 +47,51 @@ int main(int arc, char *argv[]) {
     while (SDL_PollEvent(&event)) {
       if (event.type == SDL_QUIT) {
         running = false;
+      }
+      if (event.type == SDL_KEYDOWN) {
+        // cout << "KEY PRESSED: " << event.key.keysym.sym;
+        switch (event.key.keysym.sym) {
+        case SDLK_a:
+          bus.SET_CONTROLLER_BUTTON(0, BUS::CONTROLLER_BUTTON::A, true);
+          break;
+        case SDLK_b:
+          bus.SET_CONTROLLER_BUTTON(0, BUS::CONTROLLER_BUTTON::B, true);
+          break;
+        case SDLK_s:
+          bus.SET_CONTROLLER_BUTTON(0, BUS::CONTROLLER_BUTTON::SELECT, true);
+          break;
+        case SDLK_f:
+          bus.SET_CONTROLLER_BUTTON(0, BUS::CONTROLLER_BUTTON::START, true);
+          break;
+        case SDLK_UP:
+          bus.SET_CONTROLLER_BUTTON(0, BUS::CONTROLLER_BUTTON::UP, true);
+          break;
+        case SDLK_DOWN:
+          bus.SET_CONTROLLER_BUTTON(0, BUS::CONTROLLER_BUTTON::DOWN, true);
+          break;
+        }
+      } else if (event.type == SDL_KEYUP) {
+        // cout << "KEY RELEASED: " << event.key.keysym.sym;
+        switch (event.key.keysym.sym) {
+        case SDLK_a:
+          bus.SET_CONTROLLER_BUTTON(0, BUS::CONTROLLER_BUTTON::A, false);
+          break;
+        case SDLK_b:
+          bus.SET_CONTROLLER_BUTTON(0, BUS::CONTROLLER_BUTTON::B, false);
+          break;
+        case SDLK_s:
+          bus.SET_CONTROLLER_BUTTON(0, BUS::CONTROLLER_BUTTON::SELECT, false);
+          break;
+        case SDLK_f:
+          bus.SET_CONTROLLER_BUTTON(0, BUS::CONTROLLER_BUTTON::START, false);
+          break;
+        case SDLK_UP:
+          bus.SET_CONTROLLER_BUTTON(0, BUS::CONTROLLER_BUTTON::UP, false);
+          break;
+        case SDLK_DOWN:
+          bus.SET_CONTROLLER_BUTTON(0, BUS::CONTROLLER_BUTTON::DOWN, false);
+          break;
+        }
       }
     }
 

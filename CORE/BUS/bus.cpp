@@ -59,6 +59,10 @@ uint8_t BUS::read(uint16_t addr) {
     if (CONTROLLER_STROBE) {
       return CONTROLLER_STATE[port] & 0x01;
     }
+
+    const uint8_t value = CONTROLLER_SHIFT[port] & 0x01;
+    this->CONTROLLER_SHIFT[port] >>= 1;
+    return value | 0x40;
   }
 
   if (addr < 0x8000) {
@@ -106,8 +110,13 @@ void BUS::write(uint16_t addr, uint8_t data) {
 
   if (addr == 0x4016) {
     SHADOW[addr] = data;
-    CONTROLLER_STROBE = (data & 0x01) != 0;
-    CONTROLLER_SHIFT = CONTROLLER_STATE;
+
+    bool new_strobe = (data & 0x01) != 0;
+    if (CONTROLLER_STROBE && !new_strobe) {
+      CONTROLLER_SHIFT = CONTROLLER_STATE;
+    }
+
+    CONTROLLER_STROBE = new_strobe;
     return;
   }
 
@@ -149,6 +158,8 @@ void BUS::connect_ppu(PPU_2C02 &ppu) {
 
 void BUS::SET_CONTROLLER_BUTTON(int port, CONTROLLER_BUTTON button,
                                 bool pressed) {
+
+  cout << "KEY RELEASED: " << button;
   if (port < 0 || port >= CONTROLLER_STATE.size()) {
     return;
   }
