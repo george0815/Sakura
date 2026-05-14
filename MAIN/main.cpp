@@ -42,14 +42,16 @@ int main(int arc, char *argv[]) {
   CART cart;
   LOGGER *logger = new LOGGER(false);
 
-  // int test = PARSE_FILE("smb3.nes", cart);
-  int test = PARSE_FILE("nestest.nes", cart);
+  int test = PARSE_FILE("smb3.nes", cart);
+  //  int test = PARSE_FILE("nestest.nes", cart);
 
   bus.insert_cartridge(cart);
-  SAVE_MANAGER::LOAD_SRAM("./test.sav", &bus);
+  // SAVE_MANAGER::LOAD_SRAM("./test.sav", &bus);
   cpu.connect_bus(&bus);
   bus.connect_cpu(cpu);
   bus.connect_ppu(ppu);
+
+  ppu.connect_cpu(&cpu);
   ppu.connect_mapper(bus.MAPPER, bus.MIRROR_MODE);
 
   cpu.RESET_HANDLER();
@@ -129,11 +131,17 @@ int main(int arc, char *argv[]) {
       }
     }
 
-    while (!ppu.FRAME_COMPLETE()) {
-      cpu.step();
-    }
+    int guard = 0;
 
-    ppu.CLEAR_FRAME_FLAG();
+    while (!ppu.FRAME_COMPLETE() && guard < 1000000) {
+      cpu.step();
+
+      while (cpu.CYCLES > 0) {
+        cpu.step();
+      }
+
+      guard++;
+    }
 
     bus.END_AUDIO_FRAME(cpu.TOTAL_CYCLES);
 
@@ -145,6 +153,7 @@ int main(int arc, char *argv[]) {
     }
 
     render_frame(ppu.FRAMEBUFFER_DATA());
+    ppu.CLEAR_FRAME_FLAG();
 
     uint64_t elapsed = SDL_GetTicks64() - start;
 

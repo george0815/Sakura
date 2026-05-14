@@ -91,6 +91,12 @@ uint8_t Mapper4::cpu_read(uint16_t addr) {
 }
 
 void Mapper4::cpu_write(uint16_t addr, uint8_t data) {
+
+  if (addr >= 0xC000 && addr <= 0xFFFF) {
+    cout << "MMC3 IRQ write addr=" << hex << addr << " data=" << (int)data
+         << dec << endl;
+  }
+
   if (addr < PRG_BASE) {
     return;
   }
@@ -160,8 +166,14 @@ void Mapper4::CLOCK_IRQ_COUNTER(CPU_6502 *cpu) {
   } else {
     IRQ_COUNTER--;
   }
-  if (IRQ_COUNTER == 0 && IRQ_ENABLED && cpu) {
-    cpu->IRQ_HANDLER();
+
+  IRQ_RELOAD = false;
+
+  if (IRQ_COUNTER == 0 && IRQ_ENABLED && !IRQ_PENDING) {
+    IRQ_PENDING = true;
+    if (cpu) {
+      cpu->IRQ_HANDLER();
+    }
   }
 }
 

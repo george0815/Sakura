@@ -617,7 +617,8 @@ void CPU_6502::BUILD_LOOKUP() {
   auto INSERT_INSTRUCTION = [this](uint8_t opcode_byte, const char *mnemonic,
                                    int cycles,
                                    void (CPU_6502::*opcode)(uint16_t),
-                                   uint16_t (CPU_6502::*addr_mode)()) {
+                                   uint16_t (CPU_6502::*addr_mode)(),
+                                   bool page_cycle = false) {
     auto instruciton_length =
         [&](uint16_t (CPU_6502::*addr_mode)()) -> uint8_t {
       if (addr_mode == &CPU_6502::IMPLICIT ||
@@ -636,13 +637,13 @@ void CPU_6502::BUILD_LOOKUP() {
       return 3;
     };
 
-    LOOKUP[opcode_byte] = {mnemonic, cycles, instruciton_length(addr_mode),
-                           opcode, addr_mode};
+    LOOKUP[opcode_byte] = {mnemonic, cycles,    instruciton_length(addr_mode),
+                           opcode,   addr_mode, page_cycle};
   };
 
   // Fill lookup table with NOP
   for (auto &inst : LOOKUP) {
-    inst = {"NOP", 2, 1, &CPU_6502::NOP, &CPU_6502::IMPLICIT};
+    inst = {"NOP", 2, 1, &CPU_6502::NOP, &CPU_6502::IMPLICIT, false};
   };
 
   // ADC
@@ -652,13 +653,13 @@ void CPU_6502::BUILD_LOOKUP() {
                      &CPU_6502::ZERO_PAGE_INDEXED_X);
   INSERT_INSTRUCTION(0x6D, "ADC", 4, &CPU_6502::ADC, &CPU_6502::ABSOLUTE);
   INSERT_INSTRUCTION(0x7D, "ADC", 4, &CPU_6502::ADC,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
   INSERT_INSTRUCTION(0x79, "ADC", 4, &CPU_6502::ADC,
-                     &CPU_6502::ABSOLUTE_INDEXED_Y);
+                     &CPU_6502::ABSOLUTE_INDEXED_Y, true);
   INSERT_INSTRUCTION(0x61, "ADC", 6, &CPU_6502::ADC,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0x71, "ADC", 5, &CPU_6502::ADC,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // AND
   INSERT_INSTRUCTION(0x29, "AND", 2, &CPU_6502::AND, &CPU_6502::IMMEDIATE);
@@ -667,13 +668,13 @@ void CPU_6502::BUILD_LOOKUP() {
                      &CPU_6502::ZERO_PAGE_INDEXED_X);
   INSERT_INSTRUCTION(0x2D, "AND", 4, &CPU_6502::AND, &CPU_6502::ABSOLUTE);
   INSERT_INSTRUCTION(0x3D, "AND", 4, &CPU_6502::AND,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
   INSERT_INSTRUCTION(0x39, "AND", 4, &CPU_6502::AND,
-                     &CPU_6502::ABSOLUTE_INDEXED_Y);
+                     &CPU_6502::ABSOLUTE_INDEXED_Y, true);
   INSERT_INSTRUCTION(0x21, "AND", 6, &CPU_6502::AND,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0x31, "AND", 5, &CPU_6502::AND,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // ASL
   INSERT_INSTRUCTION(0x0A, "ASL", 2, &CPU_6502::ASL, &CPU_6502::ACCUMULATOR);
@@ -717,13 +718,13 @@ void CPU_6502::BUILD_LOOKUP() {
                      &CPU_6502::ZERO_PAGE_INDEXED_X);
   INSERT_INSTRUCTION(0xCD, "CMP", 4, &CPU_6502::CMP, &CPU_6502::ABSOLUTE);
   INSERT_INSTRUCTION(0xDD, "CMP", 4, &CPU_6502::CMP,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
   INSERT_INSTRUCTION(0xD9, "CMP", 4, &CPU_6502::CMP,
-                     &CPU_6502::ABSOLUTE_INDEXED_Y);
+                     &CPU_6502::ABSOLUTE_INDEXED_Y, true);
   INSERT_INSTRUCTION(0xC1, "CMP", 6, &CPU_6502::CMP,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0xD1, "CMP", 5, &CPU_6502::CMP,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // CPX
   INSERT_INSTRUCTION(0xE0, "CPX", 2, &CPU_6502::CPX, &CPU_6502::IMMEDIATE);
@@ -754,13 +755,13 @@ void CPU_6502::BUILD_LOOKUP() {
                      &CPU_6502::ZERO_PAGE_INDEXED_X);
   INSERT_INSTRUCTION(0x4D, "EOR", 4, &CPU_6502::EOR, &CPU_6502::ABSOLUTE);
   INSERT_INSTRUCTION(0x5D, "EOR", 4, &CPU_6502::EOR,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
   INSERT_INSTRUCTION(0x59, "EOR", 4, &CPU_6502::EOR,
-                     &CPU_6502::ABSOLUTE_INDEXED_Y);
+                     &CPU_6502::ABSOLUTE_INDEXED_Y, true);
   INSERT_INSTRUCTION(0x41, "EOR", 6, &CPU_6502::EOR,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0x51, "EOR", 5, &CPU_6502::EOR,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // INC
   INSERT_INSTRUCTION(0xE6, "INC", 5, &CPU_6502::INC, &CPU_6502::ZERO_PAGE);
@@ -786,13 +787,13 @@ void CPU_6502::BUILD_LOOKUP() {
                      &CPU_6502::ZERO_PAGE_INDEXED_X);
   INSERT_INSTRUCTION(0xAD, "LDA", 4, &CPU_6502::LDA, &CPU_6502::ABSOLUTE);
   INSERT_INSTRUCTION(0xBD, "LDA", 4, &CPU_6502::LDA,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
   INSERT_INSTRUCTION(0xB9, "LDA", 4, &CPU_6502::LDA,
-                     &CPU_6502::ABSOLUTE_INDEXED_Y);
+                     &CPU_6502::ABSOLUTE_INDEXED_Y, true);
   INSERT_INSTRUCTION(0xA1, "LDA", 6, &CPU_6502::LDA,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0xB1, "LDA", 5, &CPU_6502::LDA,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // LDX
   INSERT_INSTRUCTION(0xA2, "LDX", 2, &CPU_6502::LDX, &CPU_6502::IMMEDIATE);
@@ -801,7 +802,7 @@ void CPU_6502::BUILD_LOOKUP() {
                      &CPU_6502::ZERO_PAGE_INDEXED_Y);
   INSERT_INSTRUCTION(0xAE, "LDX", 4, &CPU_6502::LDX, &CPU_6502::ABSOLUTE);
   INSERT_INSTRUCTION(0xBE, "LDX", 4, &CPU_6502::LDX,
-                     &CPU_6502::ABSOLUTE_INDEXED_Y);
+                     &CPU_6502::ABSOLUTE_INDEXED_Y, true);
 
   // LDY
   INSERT_INSTRUCTION(0xA0, "LDY", 2, &CPU_6502::LDY, &CPU_6502::IMMEDIATE);
@@ -810,7 +811,7 @@ void CPU_6502::BUILD_LOOKUP() {
                      &CPU_6502::ZERO_PAGE_INDEXED_X);
   INSERT_INSTRUCTION(0xAC, "LDY", 4, &CPU_6502::LDY, &CPU_6502::ABSOLUTE);
   INSERT_INSTRUCTION(0xBC, "LDY", 4, &CPU_6502::LDY,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
 
   // LSR
   INSERT_INSTRUCTION(0x4A, "LSR", 2, &CPU_6502::LSR, &CPU_6502::ACCUMULATOR);
@@ -828,13 +829,13 @@ void CPU_6502::BUILD_LOOKUP() {
                      &CPU_6502::ZERO_PAGE_INDEXED_X);
   INSERT_INSTRUCTION(0x0D, "ORA", 4, &CPU_6502::ORA, &CPU_6502::ABSOLUTE);
   INSERT_INSTRUCTION(0x1D, "ORA", 4, &CPU_6502::ORA,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
   INSERT_INSTRUCTION(0x19, "ORA", 4, &CPU_6502::ORA,
-                     &CPU_6502::ABSOLUTE_INDEXED_Y);
+                     &CPU_6502::ABSOLUTE_INDEXED_Y, true);
   INSERT_INSTRUCTION(0x01, "ORA", 6, &CPU_6502::ORA,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0x11, "ORA", 5, &CPU_6502::ORA,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // STACK OPERATIONS
   INSERT_INSTRUCTION(0x48, "PHA", 3, &CPU_6502::PHA, &CPU_6502::IMPLICIT);
@@ -872,13 +873,13 @@ void CPU_6502::BUILD_LOOKUP() {
                      &CPU_6502::ZERO_PAGE_INDEXED_X);
   INSERT_INSTRUCTION(0xED, "SBC", 4, &CPU_6502::SBC, &CPU_6502::ABSOLUTE);
   INSERT_INSTRUCTION(0xFD, "SBC", 4, &CPU_6502::SBC,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
   INSERT_INSTRUCTION(0xF9, "SBC", 4, &CPU_6502::SBC,
-                     &CPU_6502::ABSOLUTE_INDEXED_Y);
+                     &CPU_6502::ABSOLUTE_INDEXED_Y, true);
   INSERT_INSTRUCTION(0xE1, "SBC", 6, &CPU_6502::SBC,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0xF1, "SBC", 5, &CPU_6502::SBC,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // STA
   INSERT_INSTRUCTION(0x85, "STA", 3, &CPU_6502::STA, &CPU_6502::ZERO_PAGE);
@@ -946,17 +947,17 @@ void CPU_6502::BUILD_LOOKUP() {
   INSERT_INSTRUCTION(0xF4, "NOP", 4, &CPU_6502::NOP,
                      &CPU_6502::ZERO_PAGE_INDEXED_X);
   INSERT_INSTRUCTION(0x1C, "NOP", 4, &CPU_6502::NOP,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
   INSERT_INSTRUCTION(0x3C, "NOP", 4, &CPU_6502::NOP,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
   INSERT_INSTRUCTION(0x5C, "NOP", 4, &CPU_6502::NOP,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
   INSERT_INSTRUCTION(0x7C, "NOP", 4, &CPU_6502::NOP,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
   INSERT_INSTRUCTION(0xDC, "NOP", 4, &CPU_6502::NOP,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
   INSERT_INSTRUCTION(0xFC, "NOP", 4, &CPU_6502::NOP,
-                     &CPU_6502::ABSOLUTE_INDEXED_X);
+                     &CPU_6502::ABSOLUTE_INDEXED_X, true);
 
   // SLO
   INSERT_INSTRUCTION(0x07, "SLO", 5, &CPU_6502::SLO, &CPU_6502::ZERO_PAGE);
@@ -970,7 +971,7 @@ void CPU_6502::BUILD_LOOKUP() {
   INSERT_INSTRUCTION(0x03, "SLO", 8, &CPU_6502::SLO,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0x13, "SLO", 8, &CPU_6502::SLO,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // RLA
   INSERT_INSTRUCTION(0x27, "RLA", 5, &CPU_6502::RLA, &CPU_6502::ZERO_PAGE);
@@ -984,7 +985,7 @@ void CPU_6502::BUILD_LOOKUP() {
   INSERT_INSTRUCTION(0x23, "RLA", 8, &CPU_6502::RLA,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0x33, "RLA", 8, &CPU_6502::RLA,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // SRE
   INSERT_INSTRUCTION(0x47, "SRE", 5, &CPU_6502::SRE, &CPU_6502::ZERO_PAGE);
@@ -998,7 +999,7 @@ void CPU_6502::BUILD_LOOKUP() {
   INSERT_INSTRUCTION(0x43, "SRE", 8, &CPU_6502::SRE,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0x53, "SRE", 8, &CPU_6502::SRE,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // RRA
   INSERT_INSTRUCTION(0x67, "RRA", 5, &CPU_6502::RRA, &CPU_6502::ZERO_PAGE);
@@ -1012,7 +1013,7 @@ void CPU_6502::BUILD_LOOKUP() {
   INSERT_INSTRUCTION(0x63, "RRA", 8, &CPU_6502::RRA,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0x73, "RRA", 8, &CPU_6502::RRA,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // SAX
   INSERT_INSTRUCTION(0x87, "SAX", 3, &CPU_6502::SAX, &CPU_6502::ZERO_PAGE);
@@ -1028,11 +1029,11 @@ void CPU_6502::BUILD_LOOKUP() {
                      &CPU_6502::ZERO_PAGE_INDEXED_Y);
   INSERT_INSTRUCTION(0xAF, "LAX", 4, &CPU_6502::LAX, &CPU_6502::ABSOLUTE);
   INSERT_INSTRUCTION(0xBF, "LAX", 4, &CPU_6502::LAX,
-                     &CPU_6502::ABSOLUTE_INDEXED_Y);
+                     &CPU_6502::ABSOLUTE_INDEXED_Y, true);
   INSERT_INSTRUCTION(0xA3, "LAX", 6, &CPU_6502::LAX,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0xB3, "LAX", 5, &CPU_6502::LAX,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // DCP
   INSERT_INSTRUCTION(0xC7, "DCP", 5, &CPU_6502::DCP, &CPU_6502::ZERO_PAGE);
@@ -1046,7 +1047,7 @@ void CPU_6502::BUILD_LOOKUP() {
   INSERT_INSTRUCTION(0xC3, "DCP", 8, &CPU_6502::DCP,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0xD3, "DCP", 8, &CPU_6502::DCP,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // ISC
   INSERT_INSTRUCTION(0xE7, "ISC", 5, &CPU_6502::ISC, &CPU_6502::ZERO_PAGE);
@@ -1060,7 +1061,7 @@ void CPU_6502::BUILD_LOOKUP() {
   INSERT_INSTRUCTION(0xE3, "ISC", 8, &CPU_6502::ISC,
                      &CPU_6502::INDEXED_INDIRECT);
   INSERT_INSTRUCTION(0xF3, "ISC", 8, &CPU_6502::ISC,
-                     &CPU_6502::INDIRECT_INDEXED);
+                     &CPU_6502::INDIRECT_INDEXED, true);
 
   // ANC
   INSERT_INSTRUCTION(0x0B, "ANC", 2, &CPU_6502::ANC, &CPU_6502::IMMEDIATE);
@@ -1077,7 +1078,7 @@ void CPU_6502::BUILD_LOOKUP() {
 
   // LAS
   INSERT_INSTRUCTION(0xBB, "LAS", 4, &CPU_6502::LAS,
-                     &CPU_6502::ABSOLUTE_INDEXED_Y);
+                     &CPU_6502::ABSOLUTE_INDEXED_Y, true);
 
   // SHX/SHY/TAS
   INSERT_INSTRUCTION(0x9E, "SHX", 5, &CPU_6502::SHX,

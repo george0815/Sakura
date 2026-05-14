@@ -90,6 +90,7 @@ private:
   bool CHR_INVERSION = false;
   uint8_t IRQ_LATCH = 0;
   uint8_t IRQ_COUNTER = 0;
+  bool IRQ_PENDING = false;
   bool IRQ_RELOAD = false;
   bool IRQ_ENABLED = false;
 };

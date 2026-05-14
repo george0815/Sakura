@@ -31,6 +31,8 @@ public:
 
     uint16_t (CPU_6502::*addr_mode)(
         void); // pointer to the opcode's addressing mode
+
+    bool page_cycle;
   };
 
   // Builds lookup table, which is basically an vector of INSTRUCTION structs
@@ -103,6 +105,8 @@ public:
 
   // Total cycles used for timing by the entire system
   int TOTAL_CYCLES;
+
+  bool PENDING_INTERRUPT;
 
   // status enum
   enum STATUS {

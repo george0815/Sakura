@@ -69,8 +69,8 @@ void CPU_6502::IRQ_HANDLER() {
     // Set flags and push status register
     SET_FLAG(B_FLAG, 0);
     SET_FLAG(UNUSED, 1);
-    SET_FLAG(INTERRUPT_DISABLE, 1);
     push(STATUS_REGISTER);
+    SET_FLAG(INTERRUPT_DISABLE, 1);
 
     // construct new PC from vecor
     uint8_t lo = read(IRQ_VECTOR);
@@ -132,14 +132,14 @@ void CPU_6502::step() {
 
     // DEBUG LOGS
     stringstream temp_buffer;
-    // temp_buffer << "PC: " << hex << uppercase << hex << PC << setw(10);
+    temp_buffer << "PC: " << hex << uppercase << hex << PC << setw(10);
 
     // fetch instruction using PC
     uint8_t opcode_byte = read(PC++);
     OPCODE &op = LOOKUP[opcode_byte];
 
-    // temp_buffer << "OPCODE: " << hex << uppercase << (int)opcode_byte << " "
-    //<< op.mnemonic << " $";
+    temp_buffer << "OPCODE: " << hex << uppercase << (int)opcode_byte << " "
+                << op.mnemonic << " $";
 
     // Reset page crossed
     PAGE_CROSSED = false;
@@ -150,19 +150,19 @@ void CPU_6502::step() {
 
     // Set cycles
     CYCLES = op.cycles;
-    /*
-        temp_buffer << "A:" << hex << (int)A << " ";
-        temp_buffer << "X:" << hex << (int)X << " ";
-        temp_buffer << "Y:" << hex << (int)Y << " ";
-        temp_buffer << "P:" << hex << (int)STATUS_REGISTER << " ";
-        temp_buffer << "SP:" << hex << (int)SP;
-        LOGGER_INSTANCE->LOG("", temp_buffer.str());
-        temp_buffer.clear(); */
+
+    temp_buffer << "A:" << hex << (int)A << " ";
+    temp_buffer << "X:" << hex << (int)X << " ";
+    temp_buffer << "Y:" << hex << (int)Y << " ";
+    temp_buffer << "P:" << hex << (int)STATUS_REGISTER << " ";
+    temp_buffer << "SP:" << hex << (int)SP;
+    //    LOGGER_INSTANCE->LOG("", temp_buffer.str());
+    temp_buffer.clear();
 
     // Execute instruction
     (this->*op.opcode)(addr);
 
-    if (PAGE_CROSSED) {
+    if (op.page_cycle && PAGE_CROSSED) {
       CYCLES++;
     }
   }

@@ -70,9 +70,9 @@ private:
   const int PPU_SCANLINES = 262;
   const int PPU_CYCLES_PER_LINE = 341;
 
-  Mapper *MAPPER;
-  class CPU_6502 *CPU;
-  MIRRORING MIRROR_MODE;
+  Mapper *MAPPER = nullptr;
+  class CPU_6502 *CPU = nullptr;
+  MIRRORING MIRROR_MODE = MIRRORING::HORIZONTAL;
 
   uint8_t CTRL = 0;
   uint8_t MASK = 0;

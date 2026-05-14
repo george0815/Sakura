@@ -363,6 +363,11 @@ uint8_t PPU_2C02::cpu_read(uint16_t addr) {
 
 void PPU_2C02::cpu_write(uint16_t addr, uint8_t data) {
 
+  if (addr == 0x2000 || addr == 0x2001 || addr == 0x2005 || addr == 0x2006) {
+    cout << "PPU write $" << hex << addr << " = $" << (int)data
+         << " at scanline=" << dec << SCANLINE << " cycle=" << CYCLES << endl;
+  }
+
   switch (addr & 0x2007) {
   case 0x2000:
     CTRL = data;
@@ -520,6 +525,12 @@ void PPU_2C02::step() {
 
     if (visible_line && CYCLES == 260 && MAPPER &&
         (MASK & (SHOW_BACKGROUND_BIT | SHOW_SPRITES_BIT))) {
+      static int clock_count = 0;
+      if (clock_count++ < 100) {
+        cout << "MMC3 SCANLINE CLOCK: " << "SCANLINE=" << SCANLINE
+             << " CYCLE=" << CYCLES << " mask=" << hex << int(MASK) << dec
+             << endl;
+      }
       MAPPER->on_ppu_scanline(CPU);
     }
   }
