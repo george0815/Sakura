@@ -74,6 +74,7 @@ uint8_t BUS::read(uint16_t addr) {
     if (addr >= 0x6000 && !PRG_RAM.empty()) {
       return PRG_RAM[addr - 0x6000];
     }
+    return SHADOW[addr];
   }
 
   if (MAPPER) {
