@@ -1,5 +1,6 @@
 using System.Text.Json;
 using sakura.helpers;
+using Terminal.Gui;
 
 namespace sakura
 {
@@ -66,7 +67,19 @@ namespace sakura
         public bool UseSystemConsole { get; set; } = false;
 
 
-        //
+        // ------------------------------
+        // Hotkey controls
+        // ------------------------------
+        public RomHotkeys Controls { get; set; } = new RomHotkeys
+        {
+            StartRom = Key.F3,
+            StopRom = Key.F4,
+            StartSeeding = Key.F5,
+            StopSeeding = Key.F6,
+            RemoveTorrent = Key.F7,
+            GenMagLink = Key.F8
+        };
+
         // ------------------------------
         // ASCII / Icons
         // ------------------------------

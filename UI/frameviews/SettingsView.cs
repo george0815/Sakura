@@ -127,6 +127,19 @@ namespace sakura.frameviews
 
             #region PATHS
 
+            scroll.Add(new Label("Rom paths") { X = 1, Y = y });
+            var romDirs = new TextView()
+            {
+                X = 20,
+                Y = y,
+                Width = 40,
+                Height = 5,
+                Text = String.Join("\n", Settings.Current.AllRomPaths)
+            };
+            scroll.Add(romDirs);
+            y += 6;
+
+
             // Default rom directory
             scroll.Add(new Label(Resources.DefaultDownloadPath) { X = 1, Y = y });
             var romPathField =
@@ -406,6 +419,21 @@ namespace sakura.frameviews
 
                     // --- path validation ---
 
+                    List<string> romDirsList = [];
+                    string romDirString = romDirs.Text.ToString()!.Trim();
+
+                    if (!String.IsNullOrWhiteSpace(romDirString))
+                    {
+
+                        foreach (var line in romDirString.Split("\n", StringSplitOptions.RemoveEmptyEntries))
+                        {
+                            string trimmed = line.Trim();
+                            romDirsList.Add(trimmed);
+                        }
+
+
+                    }
+
                     string romPath = romPathField.Text.ToString()!.Trim();
                     string logPath = logPathField.Text.ToString()!.Trim();
                     string settingsPath = settingsPathField.Text.ToString()!.Trim();
@@ -450,6 +478,7 @@ namespace sakura.frameviews
                     Settings.Current.UseSystemConsole = useSystemConsole.Checked;
 
                     Settings.Current.DefaultRomPath = romPath;
+                    Settings.Current.AllRomPaths = romDirsList;
                     Settings.Current.LogPath = logPath;
                     Settings.Current.SettingsPath = settingsPath;
 

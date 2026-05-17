@@ -1,5 +1,9 @@
+using sakura.helpers;
+
 
 namespace sakura;
+
+
 
 
 //Class represents NES rom
@@ -19,12 +23,19 @@ public class Rom
     internal static List<Rom> GetAllRoms()
     {
 
+        Log.Write("GETTING ROMS");
+
+
         List<Rom> roms = new List<Rom>();
         foreach (string path in Settings.Current.AllRomPaths)
         {
-            roms.AddRange(GetRoms(path));
+            if (Directory.Exists(path))
+            {
+                roms.AddRange(GetRoms(path));
+            }
         }
 
+        Log.Write(String.Join(" ", roms));
         return roms;
 
     }
@@ -37,24 +48,41 @@ public class Rom
 
         DirectoryInfo DirInfo = new DirectoryInfo(path);
 
+
+        Log.Write(path);
+
+        foreach (FileInfo file in DirInfo.EnumerateFiles())
+        {
+            string ext = Path.GetExtension(file.Name);
+
+            if (ext.ToLower() == ".nes")
+            {
+
+                Log.Write(file.Name);
+
+                //create temp rom
+                string name = Path.GetFileNameWithoutExtension(file.Name);
+                Rom tempRom = new Rom()
+                {
+                    Name = name,
+                    RomPath = Path.Combine(file.DirectoryName, file.Name),
+                    SramPath = Path.Combine(Settings.Current.DefaultSramPath!, name),
+                    NTSC = true,
+                };
+                tempRoms.Add(tempRom);
+
+            }
+        }
+
         //For every .nes file in directory, call the parser
         foreach (FileInfo file in DirInfo.EnumerateFiles().Where(
-              f => Path.GetExtension(f.DirectoryName!)
-              .Equals(".nes", StringComparison.OrdinalIgnoreCase)))
+              f => Path.GetExtension(f.Name!)
+              .Equals("nes", StringComparison.OrdinalIgnoreCase)))
         {
             //call parser TODO: IMPLEMENT PARSER 
 
+            Log.Write("TEST");
 
-            //create temp rom
-            string name = Path.GetFileNameWithoutExtension(file.Name);
-            Rom tempRom = new Rom()
-            {
-                Name = name,
-                RomPath = file.DirectoryName,
-                SramPath = Path.Combine(Settings.Current.DefaultSramPath!, name),
-                NTSC = true,
-
-            };
 
 
         }
